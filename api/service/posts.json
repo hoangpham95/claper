@@ -1,0 +1,31 @@
+{
+  "posts": [
+    { "code": "CS 2510",
+      "author_metadata": {"name": "abc", "email": "xyz@gmail.com", "_id": 123},
+      "dateCreated": "Monday, May 23 2017",
+      "content": "I need help with my assignment 1 in cs 2510 and the payment is hourly based",
+      "offer": 10
+    },
+
+    { "code": "CS 2510",
+      "author_metadata": {"name": "abc", "email": "xyz@gmail.com", "_id": 123},
+      "dateCreated": "Monday, May 23 2017",
+      "content": "I need help with my assignment 1 in cs 2510 and the payment is hourly based",
+      "offer": 10
+    },
+
+    { "code": "CS 2510",
+      "author_metadata": {"name": "abc", "email": "xyz@gmail.com", "_id": 123},
+      "dateCreated": "Monday, May 23 2017",
+      "content": "I need help with my assignment 1 in cs 2510 and the payment is hourly based",
+      "offer": 10
+    },
+
+    { "code": "CS 2510",
+      "author_metadata": {"name": "abc", "email": "xyz@gmail.com", "_id": 123},
+      "dateCreated": "Monday, May 23 2017",
+      "content": "I need help with my assignment 1 in cs 2510 and the payment is hourly based",
+      "offer": 10
+    }
+  ]
+}
