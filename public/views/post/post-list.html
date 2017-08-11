@@ -1,0 +1,14 @@
+<div>
+    <h1><b>Search result for: {{model.classCode}}</b></h1>
+    <div ng-repeat="post in model.posts" class="card">
+        <h4><b>{{post.code}}</b></h4>
+        <p>{{post.dateCreated}} - <i><b>{{post.author_metadata.name}}</b></i></p>
+
+        <a ng-click="model.viewPost(post)">
+            <p>{{post.content}}</p>
+        </a>
+    </div>
+    <a class="btn btn-success">
+        Add a new post
+    </a>
+</div>

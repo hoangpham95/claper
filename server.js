@@ -15,6 +15,8 @@ app.use(cookieParser());
 
 app.use(express.static(__dirname + '/public'));
 
+require('./api/model/model.server.setup')();
+
 var apiApp = require('./api/app.js');
 apiApp(app);
 

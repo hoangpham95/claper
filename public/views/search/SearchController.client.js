@@ -7,8 +7,10 @@
 
     function SearchController($location, SearchService) {
         var vm = this;
+
         vm.getMajorClasses = getMajorClasses;
         vm.search = search;
+        vm.disableError = disableError;
 
         function init() {
             SearchService.getMajor()
@@ -20,7 +22,12 @@
                 });
         }
 
+        function disableError() {
+            vm.error = "";
+        }
+
          function getMajorClasses() {
+            disableError();
             SearchService.getMajorClasses(vm.selectedMajor)
                 .success(function(classes) {
                     vm.classes = classes;
@@ -35,9 +42,10 @@
             SearchService.search(vm.selectedClass.code)
                 .success(function(posts) {
                     if (posts.length > 0) {
-                        console.log(posts);
+                        SearchService.searchedPosts = posts;
+                        $location.url("/posts/" + vm.selectedClass.code);
                     } else {
-                        vm.error = "No post can be found for your class";
+                        vm.error = "No post can be found for your class.";
                     }
                 })
         }

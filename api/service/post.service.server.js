@@ -2,7 +2,7 @@
  * Created by hpham on 8/4/17.
  */
 
-module.exports = function(app) {
+module.exports = function(app, model) {
     app.get('/api/post/', getAllPostOnClass);
 
     const posts = require('./posts.json').posts;

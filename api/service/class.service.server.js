@@ -3,7 +3,7 @@
  */
 var fs = require('fs');
 
-module.exports = function(app) {
+module.exports = function(app, model) {
     app.get('/api/class/search', classSearch);
     app.get('/api/class', getClasses);
     app.get('/api/major', getMajor);

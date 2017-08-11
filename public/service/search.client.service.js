@@ -6,6 +6,7 @@
         .factory("SearchService", SearchService);
 
     function SearchService($http) {
+        var searchedPosts = [];
 
         var api = {
             "getMajor": getMajor,

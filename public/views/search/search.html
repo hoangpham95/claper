@@ -1,23 +1,31 @@
-<div ng-show="model.error" class="alert alert-danger">
-    {{model.error}}
-</div>
-<div>
-    <select name="majorSelect"
-            class="form-control selectBar"
-            ng-options="major as major for major in model.majors"
-            ng-model="model.selectedMajor"
-            ng-change="model.getMajorClasses()">
-        <option value="" disabled selected>Select the major</option>
-    </select>
+<div class="searchScene">
+    <div class="searchBar">
+        <div ng-show="model.error && model.error.length > 0">
+            <div class="alert alert-danger">
+                {{model.error}}
+                <a ng-href="#/register">
+                    Register to post about this class.
+                </a>
+            </div>
+        </div>
+        <select name="majorSelect"
+                class="form-control selectBar"
+                ng-options="major as major for major in model.majors"
+                ng-model="model.selectedMajor"
+                ng-change="model.getMajorClasses()">
+            <option value="" disabled selected>Select the major</option>
+        </select>
 
-    <select name="classSelect"
-            class="form-control selectBar"
-            ng-options="class as class.code.concat(': ').concat(class.name) for class in model.classes"
-            ng-model="model.selectedClass">
-        <option value="" disabled selected>Select the class</option>
-    </select>
+        <select name="classSelect"
+                class="form-control selectBar"
+                ng-options="class as class.code.concat(': ').concat(class.name) for class in model.classes"
+                ng-model="model.selectedClass"
+                ng-change="model.disableError()">
+            <option value="" disabled selected>Select the class</option>
+        </select>
 
-    <a class="btn btn-success" ng-click="model.search()">
-        Search
-    </a>
+        <a class="btn btn-success center" ng-click="model.search()">
+            Search
+        </a>
+    </div>
 </div>

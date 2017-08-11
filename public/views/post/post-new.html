@@ -1,0 +1,46 @@
+<div>
+    <h2>Select your class</h2>
+    <select name="majorSelect"
+            class="form-control selectBar"
+            ng-options="major as major for major in model.majors"
+            ng-model="model.selectedMajor"
+            ng-change="model.getMajorClasses()">
+        <option value="" disabled selected>Select the major</option>
+    </select>
+
+    <select name="classSelect"
+            class="form-control selectBar"
+            ng-options="class as class.code.concat(': ').concat(class.name) for class in model.classes"
+            ng-model="model.selectedClass"
+            ng-change="model.disableError()">
+        <option value="" disabled selected>Select the class</option>
+    </select>
+
+    <h2>Tell us more about what you need</h2>
+    <div>
+        <label>Type of post</label>
+        <select ng-model="model.post.postType">
+            <option value="question">Question</option>
+            <option value="helper">Offer to help</option>
+            <option value="application">Application</option>
+        </select>
+    </div>
+
+    <div>
+        <textarea class="form-control"
+                  placeholder="Description" ng-model="model.post.content"></textarea>
+    </div>
+
+    <div>
+        <label>How much is your offer? (per hour)</label>
+        <input class="form-control" ng-model="model.post.offerAmount">
+    </div>
+    <div>
+        <label>What is the prefer location to meet?</label>
+        <p>(Type your preferred location and Google maps will find the place)</p>
+        <input class="form-control" list="languages" ng-model="model.address" ng-change="model.onAddressChange()">
+        <datalist id="languages">
+            <option data-ng-repeat="major in model.majors" value="{{major}}"></option>
+        </datalist>
+    </div>
+</div>

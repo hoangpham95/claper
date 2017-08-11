@@ -1,7 +1,7 @@
 /**
  * Created by hpham on 8/4/17.
  */
-(function() {
+(function () {
     angular.module('Claper')
         .config(configuration);
 
@@ -18,8 +18,23 @@
                 controllerAs: "model"
             })
             .when("default", {
-                templateUrl: "./view/search/search.html",
+                templateUrl: "./views/search/search.html",
                 controller: "SearchController",
+                controllerAs: "model"
+            })
+            .when("/posts/:classCode", {
+                templateUrl: "./views/post/post-list.html",
+                controller: "PostController",
+                controllerAs: "model"
+            })
+            .when("/register", {
+                templateUrl: "./views/user/user-register.html",
+                controller: "UserRegisterController",
+                controllerAs: "model"
+            })
+            .when("/post/new", {
+                templateUrl: "./views/post/post-new.html",
+                controller: "PostNewController",
                 controllerAs: "model"
             });
     }
