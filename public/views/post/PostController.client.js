@@ -40,9 +40,13 @@
         vm.googlePlacesAPIKey = 'AIzaSyDfdxtsGVkYua4URRetPRufRmPRELktpc8';
 
         vm.getMajorClasses = getMajorClasses;
-        vm.onAddressChange = onAddressChange;
 
         function init() {
+            // if (!UserService.currentUser) {
+            //     $location.url("/user/login");
+            //     return;
+            // }
+
             console.log("Current User: " + UserService.currentUser);
             SearchService.getMajor()
                 .success(function(majors) {
@@ -51,13 +55,6 @@
                 .error(function() {
                     vm.error = "User error";
                 });
-
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    console.log(position);
-                    vm.currentLocation = position.coords;
-                });
-            }
         }
 
         function getMajorClasses() {
@@ -68,23 +65,6 @@
                 .error(function () {
                     vm.error = "Cannot get classes";
                 });
-        }
-        
-        function onAddressChange() {
-            var query = vm.address;
-            var googleMapApiUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
-            var url = googleMapApiUrl +
-                "callback=JSON_CALLBACK&"+
-                "query=" + query + "&" +
-                "location=" + vm.currentLocation.latitude.toString() + "," + vm.currentLocation.longitude.toString() + "&" +
-                "key=" + vm.googlePlacesAPIKey;
-
-            $http.jsonp(url)
-            .success(function (result) {
-                console.log(result);
-            }).error(function (error) {
-                console.log("Error: " + error);
-            });
         }
 
         init();

@@ -13,6 +13,5 @@ module.exports = function () {
         images: [{type: String}], // list of image url
         offerAmount: Number,
         dateCreated: {type: Date, default: Date.now},
-        meetingLocation: {lat: Number, long: Number, literalAddress: String},
     }, {collection: 'post'});
 };

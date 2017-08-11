@@ -11,13 +11,18 @@
 
         var api = {
             "createUser": createUser,
-            "getUserById": getUserById
+            "getUserById": getUserById,
+            "login": login
         };
 
         return api;
 
-        function getUserById() {
-            console.log("Hello!");
+        function getUserById(userId) {
+            return $http.get("/api/user/" + userId);
+        }
+
+        function login(user) {
+            return $http.post("/api/user/login", user);
         }
 
         function createUser(user) {

@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div ng-show="model.error" class="alert alert-danger">
+        Error: {{model.error}}
+    </div>
+
+    <h1><b>User Profile</b></h1>
+    <div>
+        <label>Username</label>
+        <input ng-model="model.user.username" placeholder="Username" class="form-control">
+    </div>
+
+    <div>
+        <label>First name</label>
+        <input ng-model="model.user.firstName" placeholder="First name" class="form-control">
+    </div>
+
+    <div>
+        <label>Last name</label>
+        <input ng-model="model.user.lastName" placeholder="Last name" class="form-control">
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input ng-model="model.user.email" placeholder="email" class="form-control">
+    </div>
+
+    <a ng-href="#/user/{{model.uid}}/post/new" class="btn btn-primary btn-block">
+        New post
+    </a>
+</div>

@@ -32,9 +32,19 @@
                 controller: "UserRegisterController",
                 controllerAs: "model"
             })
-            .when("/post/new", {
+            .when("/user/:userId/post/new", {
                 templateUrl: "./views/post/post-new.html",
                 controller: "PostNewController",
+                controllerAs: "model"
+            })
+            .when("/user/login", {
+                templateUrl: "./views/user/user-login.html",
+                controller: "UserLoginController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId", {
+                templateUrl: "./views/user/user-profile.html",
+                controller: "UserProfileController",
                 controllerAs: "model"
             });
     }

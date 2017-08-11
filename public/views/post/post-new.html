@@ -35,12 +35,8 @@
         <label>How much is your offer? (per hour)</label>
         <input class="form-control" ng-model="model.post.offerAmount">
     </div>
-    <div>
-        <label>What is the prefer location to meet?</label>
-        <p>(Type your preferred location and Google maps will find the place)</p>
-        <input class="form-control" list="languages" ng-model="model.address" ng-change="model.onAddressChange()">
-        <datalist id="languages">
-            <option data-ng-repeat="major in model.majors" value="{{major}}"></option>
-        </datalist>
-    </div>
+
+    <a ng-click="model.submit()" class="btn btn-success">
+        Submit
+    </a>
 </div>

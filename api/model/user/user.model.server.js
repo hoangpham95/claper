@@ -12,12 +12,14 @@ module.exports = function() {
   var api = {
       createUser: createUser,
       getUserById: getUserById,
+      login: login,
+      getAllUser: getAllUser
   };
 
   function createUser(user) {
       var deferred = q.defer();
 
-      userModel.find({username: user.username})
+      userModel.findOne({username: user.username})
           .exec(function(err, result) {
               if (err) {
                   deferred.reject("Username is already taken");
@@ -38,11 +40,40 @@ module.exports = function() {
   function getUserById(userId) {
       var deferred = q.defer();
 
-      userModel.find({_id: userId}, function(error, user) {
+      userModel.findOne({_id: userId}, function(error, user) {
           if (error) {
               deferred.reject(error);
           } else {
               deferred.resolve(user);
+          }
+      });
+
+      return deferred.promise;
+  }
+
+  function login(user) {
+      var deferred = q.defer();
+
+      userModel.findOne({username: user.username, password: user.password})
+          .exec(function(err, result) {
+              if (err) {
+                  deferred.reject(err);
+              } else {
+                  deferred.resolve(result);
+              }
+          });
+
+      return deferred.promise;
+  }
+
+  function getAllUser() {
+      var deferred = q.defer();
+
+      userModel.find({}, function(err, result) {
+          if (err) {
+              deferred.reject(err);
+          } else {
+              deferred.resolve(result);
           }
       });
 
