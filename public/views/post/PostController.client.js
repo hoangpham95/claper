@@ -73,14 +73,14 @@
         function onAddressChange() {
             var query = vm.address;
             var googleMapApiUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
-
-            $http({
-                method: 'GET',
-                url: googleMapApiUrl +
+            var url = googleMapApiUrl +
+                "callback=JSON_CALLBACK&"+
                 "query=" + query + "&" +
                 "location=" + vm.currentLocation.latitude.toString() + "," + vm.currentLocation.longitude.toString() + "&" +
-                "key=" + vm.googlePlacesAPIKey
-            }).success(function (result) {
+                "key=" + vm.googlePlacesAPIKey;
+
+            $http.jsonp(url)
+            .success(function (result) {
                 console.log(result);
             }).error(function (error) {
                 console.log("Error: " + error);
