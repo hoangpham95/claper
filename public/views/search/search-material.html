@@ -1,0 +1,23 @@
+<div id="search-screen" layout="column" layout-align="center stretch" layout-wrap ng-cloak class="md-padding">
+    <md-card class="md-padding" style="position: relative; top: 50%; transform: translateY(50%);">
+        <h1>Claper</h1>
+        <md-inputContainer>
+            <md-select placeholder="Choose the major"
+                       ng-model="model.selectedMajor"
+                       ng-change="model.getMajorClasses()">
+                <md-option ng-value="major" ng-repeat="major in model.majors">{{major}}</md-option>
+            </md-select>
+
+            <md-select placeholder="Choose the class"
+                       ng-model="model.selectedClass">
+                <md-option ng-value="class" ng-repeat="class in model.classes">
+                    {{class.code}}: {{class.name}}
+                </md-option>
+            </md-select>
+        </md-inputContainer>
+        <p ng-show="model.error">
+            <label style="color: red">{{model.error}}</label>
+            Click <a ng-href="#/login">here</a> to login/sign up to post.</p>
+        <md-button class="md-raised md-primary" ng-click="model.search($event)">Search</md-button>
+    </md-card>
+</div>

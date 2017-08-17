@@ -17,6 +17,13 @@ app.use(express.static(__dirname + '/public'));
 
 require('./api/model/model.server.setup')();
 
+var session = require('express-session');
+app.use(session({ secret: 'aG9hbmdwaGFtOTU=' }));
+
+var passport = require('passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
 var apiApp = require('./api/app.js');
 apiApp(app);
 

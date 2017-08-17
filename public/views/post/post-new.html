@@ -1,42 +1,108 @@
-<div>
-    <h2>Select your class</h2>
-    <select name="majorSelect"
-            class="form-control selectBar"
-            ng-options="major as major for major in model.majors"
-            ng-model="model.selectedMajor"
-            ng-change="model.getMajorClasses()">
-        <option value="" disabled selected>Select the major</option>
-    </select>
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button aria-label="Go Back" ng-href="#/posts/all">
+            <i class="material-icons">undo</i>
+        </md-button>
 
-    <select name="classSelect"
-            class="form-control selectBar"
-            ng-options="class as class.code.concat(': ').concat(class.name) for class in model.classes"
-            ng-model="model.selectedClass"
-            ng-change="model.disableError()">
-        <option value="" disabled selected>Select the class</option>
-    </select>
+        <md-truncate class="toolbar">
+            Post detail
+        </md-truncate>
 
-    <h2>Tell us more about what you need</h2>
-    <div>
-        <label>Type of post</label>
-        <select ng-model="model.post.postType">
-            <option value="question">Question</option>
-            <option value="helper">Offer to help</option>
-            <option value="application">Application</option>
-        </select>
+        <span flex></span>
+        <md-button class="md-fab md-mini" aria-label="profile" ng-href="#/profile">
+            <i class="material-icons">person</i>
+        </md-button>
     </div>
+</md-toolbar>
+<md-content class="md-padding">
+    <md-card class="md-padding">
+        <md-content ng-show="model.notCurrentUserError">
+            {{model.notCurrentUserError}}
+        </md-content>
 
-    <div>
-        <textarea class="form-control"
-                  placeholder="Description" ng-model="model.post.content"></textarea>
-    </div>
+        <div ng-show="!model.notCurrentUserError">
+            <div layout="row" layout-align="space-between center">
+                <h1>New post</h1>
+                <md-button aria-label="Submit Button" class="md-fab md-primary" ng-click="model.submit()">
+                    <md-icon md-font-library="material-icons">check</md-icon>
+                </md-button>
+            </div>
+            <md-divider></md-divider>
+            <div layout="column">
+                <h2>Choose your class</h2>
+                <div layout="row" layout-xs="column">
+                    <div flex-gt-xs>
+                        <label>Major</label>
+                        <md-select placeholder="Choose the major"
+                                   ng-model="model.selectedMajor"
+                                   ng-change="model.getMajorClasses()">
+                            <md-option ng-value="major" ng-repeat="major in model.majors">{{major}}</md-option>
+                        </md-select>
+                    </div>
+                    <div style="width: 10px"></div>
+                    <div flex-gt-xs>
+                        <label>Class</label>
+                        <md-select placeholder="Choose the class"
+                                   ng-model="model.selectedClass">
+                            <md-option ng-value="class" ng-repeat="class in model.classes">
+                                {{class.code}}: {{class.name}}
+                            </md-option>
+                        </md-select>
+                    </div>
+                </div>
 
-    <div>
-        <label>How much is your offer? (per hour)</label>
-        <input class="form-control" ng-model="model.post.offerAmount">
-    </div>
+                <h2>Tell us more about what you need</h2>
 
-    <a ng-click="model.submit()" class="btn btn-success">
-        Submit
-    </a>
-</div>
+                <div layout="column" layout-xs="row" style="margin-bottom: 15px">
+                    <label style="margin-bottom: 15px"><i>Where is your comfortable place to meet?</i></label>
+                    <md-autocomplete
+                            md-selected-item="model.selectedPlace"
+                            md-search-text="model.searchPlaceText"
+                            md-items="place in model.places"
+                            md-search-text-change="model.updatingPlaces()"
+                            md-item-text="place.formatted_address"
+                            md-min-length="0"
+                            placeholder="Enter the address">
+                        <md-item-template>
+                            <span md-highlight-text="model.searchPlaceText" md-highlight-flags="^i">
+                                {{place.formatted_address}}
+                            </span>
+                        </md-item-template>
+
+                    </md-autocomplete>
+                </div>
+
+                <div layout="column" style="margin-bottom: 15px">
+                    <label style="margin-bottom: 10px"><i>Post type</i></label>
+                    <md-radio-group ng-model="model.post.postType" layout="row">
+                        <md-radio-button value="question" class="md-primary">Question</md-radio-button>
+                        <md-radio-button value="helper" class="md-primary">Help someone</md-radio-button>
+                        <md-radio-button value="application"class="md-primary">Recruitment</md-radio-button>
+                    </md-radio-group>
+                </div>
+
+                <div>
+                    <label><i>Post description</i></label>
+                    <md-input-container class="md-block">
+                    <textarea class="form-control"
+                              placeholder="Description"
+                              ng-model="model.post.content"
+                              rows="5"
+                    ></textarea>
+                    </md-input-container>
+                </div>
+
+                <div>
+                    <label>How much is your offer? (per hour)</label>
+                    <md-input-container class="md-block">
+                        <input class="form-control"
+                               ng-model="model.post.offerAmount"
+                               placeholder="Offer amount">
+                    </md-input-container>
+                </div>
+
+                <div id="ggMap" style="display: none"></div>
+            </div>
+        </div>
+    </md-card>
+</md-content>

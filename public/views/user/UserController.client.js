@@ -8,7 +8,7 @@
         .controller("UserProfileController", UserProfileController)
         .controller("UserRegisterController", UserRegisterController);
 
-    function UserLoginController(UserService, $location) {
+    function UserLoginController(UserService, $rootScope, $location) {
         var vm = this;
         vm.login = login;
 
@@ -16,17 +16,18 @@
             // console.log(vm.user);
             UserService.login(vm.user)
                 .success(function(usr) {
-                    UserService.currentUser = usr;
+                    $rootScope.currentUser = usr;
                     console.log(usr);
                     // $location.url("/post/new");
-                    $location.url("/user/" + usr._id);
+                    $location.url("/profile");
                 }).error(function(err) {
-                    vm.error = err.message;
+                    console.log(err);
+                    vm.error = err;
             })
         }
     }
 
-    function UserRegisterController($scope, $location, UserService) {
+    function UserRegisterController($rootScope, $location, UserService) {
         var vm = this;
         vm.createUser = createUser;
 
@@ -36,25 +37,69 @@
                 .success(function(res) {
                     vm.message = "Register successfully";
                     // UserService.currentUser = res;
-                    console.log(res);
-                    $location.url("/user/" + res._id);
+                    $rootScope.currentUser = res;
+                    $location.url("/user/" + $rootScope.currentUser._id);
                 }).error(function(err) {
                     console.log(err);
             });
         }
     }
 
-    function UserProfileController($routeParams, UserService) {
+    function UserProfileController($rootScope, $routeParams, $location, UserService) {
         var vm = this;
         vm.uid = $routeParams.userId;
 
+        vm.viewPost = viewPost;
+        vm.isCurrentUser = isCurrentUser;
+        vm.updateUser = updateUser;
+
         function init() {
+            if (!vm.uid) {
+                vm.uid = $rootScope.currentUser._id;
+            }
+            console.log($rootScope.currentUser);
             UserService.getUserById(vm.uid)
                 .success(function(user) {
                     vm.user = user;
                 }).error(function(error) {
                     vm.error = error.message;
             });
+
+            UserService.getUserPosts(vm.uid)
+                .success(function(posts) {
+                    vm.userPosts = posts;
+                }).error(function(error) {
+                    vm.error = error.message;
+            });
+
+            UserService.getReviewsByOtherId(vm.uid)
+                .success(function(reviews) {
+                    console.log(reviews);
+                    vm.userReviews = reviews;
+                }).error(function(error) {
+                    vm.error = error.message;
+            });
+        }
+
+        function viewPost(post) {
+            $location.url("/post/" + post._id);
+        }
+
+        function isCurrentUser() {
+            if ($rootScope.currentUser && $rootScope.currentUser._id === vm.uid) {
+                return true;
+            }
+
+            return false;
+        }
+
+        function updateUser() {
+            UserService.updateUser(vm.user)
+                .success(function(result) {
+                    $location.url('/profile');
+                }).error(function(err) {
+                    console.log(err);
+            })
         }
 
         init();

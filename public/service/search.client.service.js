@@ -11,7 +11,8 @@
         var api = {
             "getMajor": getMajor,
             "getMajorClasses": getMajorClasses,
-            "search": search
+            "search": search,
+            "getNumberOfPosts": getNumberOfPosts
         };
 
         return api;
@@ -26,6 +27,10 @@
 
         function search(code) {
             return $http.get('/api/post?code=' + code);
+        }
+
+        function getNumberOfPosts() {
+            return $http.get('/api/posts');
         }
     }
 })();

@@ -1,0 +1,67 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button aria-label="Go Back" ng-href="#/posts/all">
+            <i class="material-icons">undo</i>
+        </md-button>
+
+        <md-truncate class="toolbar">
+            Claper
+        </md-truncate>
+
+        <span flex></span>
+        <md-button class="md-fab md-mini" aria-label="profile" ng-href="#/profile">
+            <i class="material-icons">person</i>
+        </md-button>
+    </div>
+</md-toolbar>
+<div class="md-padding">
+    <md-card class="md-padding">
+        <md-card-title>
+            <md-card-title-text layout="row" layout-align="space-between center">
+                <div layout="column">
+                <span class="md-headline">Review
+                    <a ng-href="#/user/{{model.user._id}}">
+                        {{model.user.username}}
+                    </a>
+                </span>
+                    <span class="md-subhead">
+                    <b>{{model.post.classCode}} {{model.post.className}}</b>
+                </span>
+                </div>
+                <md-button class="md-fab md-primary" ng-click="model.submit()">
+                    <md-icon md-font-library="materials-icon">check</md-icon>
+                </md-button>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-divider></md-divider>
+
+        <md-card-content>
+            <div ng-show="{{model.error}}" class="alert alert-danger">
+                {{model.error}}
+            </div>
+
+            <md-input-container class="md-block">
+                <label>Summary</label>
+                <input ng-model="model.review.title" placeholder="Short description of your review">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Rating</label>
+                <md-select
+                        ng-model="model.review.rating"
+                        ng-change="model.disableError()">
+                    <md-option ng-repeat="rating in model.ratings" ng-value="rating">{{rating}}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>What do you think about this author?</label>
+                <textarea class="form-control"
+                          rows="5"
+                          ng-model="model.review.content"
+                          placeholder="Write it down!"></textarea>
+            </md-input-container>
+        </md-card-content>
+    </md-card>
+</div>

@@ -5,12 +5,11 @@
     angular.module("Claper")
         .controller("SearchController", SearchController);
 
-    function SearchController($location, SearchService) {
+    function SearchController($location, SearchService, $mdDialog) {
         var vm = this;
 
         vm.getMajorClasses = getMajorClasses;
         vm.search = search;
-        vm.disableError = disableError;
 
         function init() {
             SearchService.getMajor()
@@ -20,14 +19,16 @@
                 .error(function() {
                     vm.error = "User error";
                 });
-        }
 
-        function disableError() {
-            vm.error = "";
+            SearchService.getNumberOfPosts()
+                .success(function(number) {
+                    vm.totalPosts = number;
+                }).error(function(error) {
+                    vm.error = error.message;
+            });
         }
 
          function getMajorClasses() {
-            disableError();
             SearchService.getMajorClasses(vm.selectedMajor)
                 .success(function(classes) {
                     vm.classes = classes;
@@ -37,17 +38,21 @@
                 });
         }
 
-        function search() {
+        function search(ev) {
             console.log(vm.selectedClass);
-            SearchService.search(vm.selectedClass.code)
-                .success(function(posts) {
-                    if (posts.length > 0) {
-                        SearchService.searchedPosts = posts;
-                        $location.url("/posts/" + vm.selectedClass.code);
-                    } else {
-                        vm.error = "No post can be found for your class.";
-                    }
+            if (vm.selectedClass && vm.selectedClass !== null) {
+                SearchService.search(vm.selectedClass.code)
+                    .success(function (posts) {
+                        if (posts.length > 0) {
+                            SearchService.searchedPosts = posts;
+                            $location.url("/post/" + vm.selectedClass.code);
+                        } else {
+                            vm.error = "No class has been found."
+                        }
+                    }).error(function(err) {
+                        console.log(err);
                 })
+            }
         }
 
         init();

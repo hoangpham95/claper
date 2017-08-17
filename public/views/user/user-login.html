@@ -1,19 +1,40 @@
-<div>
-    <div ng-show="model.error" class="alert alert-danger">
-        {{model.error}}
-    </div>
-    <h2>Login</h2>
-    <div>
-        <label>Username</label>
-        <input ng-model="model.user.username" placeholder="Username" class="form-control">
-    </div>
+<md-content>
+    <div layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Login</span>
+                    <span class="md-subhead">Sign in using your username and password</span>
+                </md-card-title-text>
+            </md-card-title>
 
-    <div>
-        <label>Password</label>
-        <input ng-model="model.user.password" placeholder="Password" class="form-control" type="password">
-    </div>
+            <md-card-content>
+                <div layout="column" layout-align="center stretch">
+                    <label><b>Username</b></label>
+                    <md-input-container class="md-block">
+                        <label>Your user name</label>
+                        <input required name="username" ng-model="model.user.username">
+                        <div ng-messages="model.userNameError">
+                            <div ng-message="required">This field is required</div>
+                        </div>
+                    </md-input-container>
 
-    <a ng-click="model.login()" class="btn btn-success">
-        Login
-    </a>
-</div>
+                    <label><b>Password</b></label>
+                    <md-input-container class="md-block">
+                        <label>Your password</label>
+                        <input required name="password" type="password" ng-model="model.user.password">
+                        <div ng-messages="model.passwordError">
+                            <div ng-message="required">This field is required</div>
+                        </div>
+                    </md-input-container>
+
+                    <label>Don't have an account? <a ng-href="#/register">Click here to sign up.</a></label>
+                </div>
+            </md-card-content>
+            <md-button class="md-primary md-raised md-block"
+                ng-click="model.login()">
+                Login
+            </md-button>
+        </md-card>
+    </div>
+</md-content>

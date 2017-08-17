@@ -13,7 +13,7 @@
 
         $routeProvider
             .when("/", {
-                templateUrl: "./views/search/search.html",
+                templateUrl: "./views/search/search-material.html",
                 controller: "SearchController",
                 controllerAs: "model"
             })
@@ -22,22 +22,28 @@
                 controller: "SearchController",
                 controllerAs: "model"
             })
-            .when("/posts/:classCode", {
+            .when("/post/:classCode", {
                 templateUrl: "./views/post/post-list.html",
-                controller: "PostController",
+                controller: "PostListController",
                 controllerAs: "model"
+            })
+            .when("/posts/all", {
+                templateUrl: "./views/post/post-list.html",
+                controller: "PostListController",
+                controllerAs: "model",
             })
             .when("/register", {
                 templateUrl: "./views/user/user-register.html",
                 controller: "UserRegisterController",
                 controllerAs: "model"
             })
-            .when("/user/:userId/post/new", {
+            .when("/posts/new", {
                 templateUrl: "./views/post/post-new.html",
                 controller: "PostNewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
             })
-            .when("/user/login", {
+            .when("/login", {
                 templateUrl: "./views/user/user-login.html",
                 controller: "UserLoginController",
                 controllerAs: "model"
@@ -46,6 +52,51 @@
                 templateUrl: "./views/user/user-profile.html",
                 controller: "UserProfileController",
                 controllerAs: "model"
+            })
+            .when("/post/detail/:postId", {
+                templateUrl: "./views/post/post-detail.html",
+                controller: "PostDetailController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
+            .when("/post/edit/:postId", {
+                templateUrl: "./views/post/post-edit.html",
+                controller: "PostEditController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
+            .when("/post/:postId/review/new", {
+                templateUrl: "./views/review/review-new.html",
+                controller: "ReviewNewController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
+            .when("/profile", {
+                templateUrl: "./views/user/user-profile.html",
+                controller: "UserProfileController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
+            .when("/profile/edit", {
+                templateUrl: "./views/user/user-edit.html",
+                controller: "UserProfileController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
             });
+    }
+    var checkLoggedIn = function($q, $timeout, $http, $location, $rootScope) {
+        var deferred = $q.defer();
+        $http.get('/api/loggedin')
+            .success(function(user) {
+                $rootScope.errorMessage = null;
+                if (user !== '0') {
+                    $rootScope.currentUser = user;
+                    deferred.resolve(user);
+                } else {
+                    deferred.reject(user);
+                    $location.url('/login');
+                }
+            });
+        return deferred.promise;
     }
 })();

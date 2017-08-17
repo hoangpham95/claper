@@ -3,5 +3,5 @@
  */
 
 (function () {
-    angular.module("Claper", ["ngRoute"]);
+    angular.module("Claper", ["ngRoute", "ngMaterial"]);
 })();

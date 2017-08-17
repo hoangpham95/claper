@@ -1,30 +1,105 @@
-<div class="container-fluid">
-    <div ng-show="model.error" class="alert alert-danger">
-        Error: {{model.error}}
-    </div>
+<div>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button aria-label="Go Back" ng-href="#/">
+                <i class="material-icons">undo</i>
+            </md-button>
 
-    <h1><b>User Profile</b></h1>
-    <div>
-        <label>Username</label>
-        <input ng-model="model.user.username" placeholder="Username" class="form-control">
-    </div>
+            <md-truncate class="toolbar">
+                Claper
+            </md-truncate>
 
-    <div>
-        <label>First name</label>
-        <input ng-model="model.user.firstName" placeholder="First name" class="form-control">
-    </div>
+            <span flex></span>
+            <md-button class="md-fab md-mini" aria-label="profile" ng-href="#/profile">
+                <i class="material-icons">person</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <div class="md-padding">
+        <md-card>
+            <md-card-content>
+                <div layout="row" layout-sm="column">
+                    <div flex-gt-sm="30" style="height: 325px">
+                        <div>
+                            <div layout="row" layout-align="space-between center">
+                                <span class="md-headline">Profile</span>
+                                <md-button class="md-fab md-primary"
+                                           aria-label="Edit"
+                                           ng-href="#/profile/edit"
+                                           ng-show="model.isCurrentUser()">
+                                    <i class="material-icons">edit</i>
+                                </md-button>
+                            </div>
+                        </div>
+                        <!--<md-divider></md-divider>-->
+                        <md-card-content layout-padding>
+                            <p><b>Username:</b> {{model.user.username}}</p>
+                            <p><b>First name:</b> {{model.user.firstName}}</p>
+                            <p><b>Last name:</b> {{model.user.lastName}}</p>
+                            <p><b>Email:</b> {{model.user.email}}</p>
 
-    <div>
-        <label>Last name</label>
-        <input ng-model="model.user.lastName" placeholder="Last name" class="form-control">
-    </div>
+                        </md-card-content>
+                    </div>
 
-    <div>
-        <label>Email</label>
-        <input ng-model="model.user.email" placeholder="email" class="form-control">
-    </div>
+                    <md-divider style="margin-right: 10px"></md-divider>
 
-    <a ng-href="#/user/{{model.uid}}/post/new" class="btn btn-primary btn-block">
-        New post
-    </a>
+                    <div flex-gt-sm="35">
+                        <div>
+                            <div layout="row" layout-align="space-between center">
+                                <label class="md-headline">Posts</label>
+                                <md-button class="md-fab md-primary"
+                                           ng-show="model.isCurrentUser()"
+                                           aria-label="New post"
+                                           ng-href="#/posts/new">
+                                    <md-icon md-font-library="material-icons">border_color</md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+                        <!--<md-divider></md-divider>-->
+                        <div>
+                            <label ng-show="model.userPosts.length === 0">
+                                This user hasn't posted anything.
+                            </label>
+                            <md-list ng-show="model.userPosts.length > 0">
+                                <md-list-item class="md-3-line" ng-repeat="post in model.userPosts"
+                                              ng-href="#/post/detail/{{post._id}}">
+                                    <div class="md-list-item-text">
+                                        <!--<h2>{{post.postType}}</h2>-->
+                                        <h2>{{post.classCode}}: {{post.className}}</h2>
+                                        <h4>{{post.dateCreated}}</h4>
+                                        <p>{{post.content.substring(0, 65).concat('...')}}</p>
+                                    </div>
+                                    <md-divider ng-if="!$last"></md-divider>
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                    </div>
+
+                    <md-divider style="margin-right: 10px"></md-divider>
+
+                    <div flex-gt-sm="35">
+                        <div>
+                            <span class="md-headline">Reviews</span>
+                        </div>
+                        <!--<md-divider></md-divider>-->
+                        <div>
+                            <label ng-show="model.userReviews.length === 0">
+                                This user doesn't have any reviews
+                            </label>
+                            <md-list flex ng-show="model.userReviews.length > 0">
+                                <md-list-item class="md-3-line" ng-repeat="review in model.userReviews">
+                                    <div class="md-list-item-text">
+                                        <h2>{{review.title}} * {{review.rating}}/10</h2>
+                                        <h3>{{review.dateCreated}}</h3>
+                                        <p>{{review.content}}</p>
+                                    </div>
+                                    <md-divider ng-if="!$last"></md-divider>
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
 </div>

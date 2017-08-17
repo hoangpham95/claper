@@ -1,0 +1,86 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button aria-label="Go Back" ng-href="#/posts/all">
+            <i class="material-icons">undo</i>
+        </md-button>
+
+        <md-truncate class="toolbar">
+            Claper
+        </md-truncate>
+
+        <span flex></span>
+        <md-button class="md-fab md-mini" aria-label="profile" ng-href="#/profile">
+            <i class="material-icons">person</i>
+        </md-button>
+    </div>
+</md-toolbar>
+<div layout="row" class="md-padding">
+    <div hide-sm hide-xs flex-gt-sm="35">
+        <h1>Post list</h1>
+        <div layout="row">
+            <input flex="80" placeholder="Search posts by keyword"
+                   ng-model="model.searchKeyword">
+            <md-button flex="20" class="md-primary md-raised" ng-click="model.search()">Search</md-button>
+        </div>
+        <md-list layout-wrap>
+            <md-list-item class="md-3-line" ng-repeat="post in model.posts" ng-href="#/post/edit/{{post._id}}">
+                <img class="md-avatar" ng-src="{{model.getPostTypeAvatar(post)}}">
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{post.classCode}}</h3>
+                    <h4>{{post.dateCreated}}</h4>
+                    <p>{{post.content.substring(0, 120) + '...'}}</p>
+                </div>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+        </md-list>
+    </div>
+
+    <md-card flex-sm="100" flex-gt-sm="65" layout-wrap>
+        <md-card-content>
+            <div layout="row" layout-align="space-between center">
+                <h1>Edit post</h1>
+                <md-button class="md-fab" ng-click="model.updatePost()">
+                    <i class="material-icons">done</i>
+                </md-button>
+            </div>
+
+            <md-divider></md-divider>
+
+            <h4><b>{{model.post.classCode}}: {{model.post.className}}</b></h4>
+            <p>{{model.post.dateCreated}}</p>
+
+            <md-input-container layout="column" layout-xs="row">
+                <label>Edit meeting place</label>
+                <md-autocomplete
+                        md-selected-item="model.post.place"
+                        md-search-text="model.searchPlaceText"
+                        md-items="place in model.places"
+                        md-search-text-change="model.updatingPlaces()"
+                        md-item-text="place"
+                        md-min-length="0"
+                        placeholder="Enter the address">
+                    <md-item-template>
+                            <span md-highlight-text="model.searchPlaceText" md-highlight-flags="^i">
+                                {{place}}
+                            </span>
+                    </md-item-template>
+
+                </md-autocomplete>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Edit post content</label>
+                <textarea rows="5" ng-model="model.post.content">
+                    {{model.post.content}}
+                </textarea>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Edit post amount</label>
+                <input ng-model="model.post.offerAmount">
+            </md-input-container>
+        </md-card-content>
+    </md-card>
+
+    <div style="display: none" id="ggMap"></div>
+</div>

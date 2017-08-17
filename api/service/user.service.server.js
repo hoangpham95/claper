@@ -2,11 +2,107 @@
  * Created by hpham on 8/11/17.
  */
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt-nodejs');
+
 module.exports = function(app, model) {
     app.post('/api/user/', createUser);
     app.get('/api/user/:userId', getUserById);
     app.post('/api/user/login', login);
     app.get('/api/user/all', getAllUser);
+    app.put('/api/user', updateUser);
+
+    // passport user management
+    app.post("/api/login", passport.authenticate('local'), login);
+    app.post("/api/logout", logout);
+    app.post("/api/register", register);
+    app.get('/api/loggedin', loggedin);
+
+    passport.use(new LocalStrategy(localStrategy));
+    passport.serializeUser(serializeUser);
+    passport.deserializeUser(deserializeUser);
+
+    function serializeUser(user, callback) {
+        callback(null, user);
+    }
+
+    function deserializeUser(user, callback) {
+        model.userModel.getUserById(user._id)
+            .then(function (user) {
+                callback(null, user);
+            }, function (err) {
+                console.log(err);
+                callback(err, null);
+            });
+    }
+
+    function localStrategy(username, password, callback) {
+        model.userModel.findUserByUsername(username)
+            .then(function (user) {
+                if (user && user !== null) {
+                    var result;
+                    try {
+                        result = bcrypt.compareSync(password, user.password);
+                        if (result) {
+                            callback(null, user);
+                        }
+                    } catch (e) {
+                        callback(e, null);
+                    }
+
+                } else {
+                    callback("Cannot find user", null);
+                }
+            }, function (error) {
+                console.log(error);
+                callback(error, null);
+            });
+    }
+
+    function loggedin(req, res) {
+        res.send(req.isAuthenticated() ? req.user : '0');
+    }
+
+    function register(req, res) {
+        var user = req.body;
+
+        if (user.password) {
+            user.password = bcrypt.hashSync(user.password);
+        }
+
+        model.userModel.createUser(user)
+            .then(function (usr) {
+                if (usr) {
+                    req.login(usr, function (err) {
+                        if (err) {
+                            res.status(400).send(err);
+                        } else {
+                            res.json(usr);
+                        }
+                    });
+                }
+            })
+    }
+
+    function logout(req, res) {
+        req.logOut();
+        res.send(200);
+    }
+
+    function login(req, res) {
+        var user = req.body;
+        model.userModel.findUserByUsername(user.username)
+            .then(function (usr) {
+                if (bcrypt.compareSync(user.password, usr.password)) {
+                    res.json(usr);
+                }
+            }, function (error) {
+                res.status(404).send(error);
+            });
+    }
+
+    // end passport login
 
     function createUser(req, res) {
         model.userModel.createUser(req.body)
@@ -26,23 +122,23 @@ module.exports = function(app, model) {
             })
     }
 
-    function login(req, res) {
-        var user = req.body;
-        console.log(user);
-        model.userModel.login(user)
-            .then(function(user) {
-                res.send(user);
-            }, function(error) {
-                res.status(404).send(error);
-            })
-    }
-
     function getAllUser(req, res) {
         model.userModel.getAllUser()
             .then(function(users) {
                 res.send(users);
             }, function(error) {
                 res.status(500).send(error);
+            })
+    }
+
+    function updateUser(req, res) {
+        var user = req.body;
+
+        model.userModel.updateUser(user)
+            .then(function(result) {
+                res.send(result);
+            }, function(error) {
+                res.status(400).send(error);
             })
     }
 };

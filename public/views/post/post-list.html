@@ -1,14 +1,43 @@
 <div>
-    <h1><b>Search result for: {{model.classCode}}</b></h1>
-    <div ng-repeat="post in model.posts" class="card">
-        <h4><b>{{post.code}}</b></h4>
-        <p>{{post.dateCreated}} - <i><b>{{post.author_metadata.name}}</b></i></p>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button aria-label="Go Back" ng-href="#/">
+                <i class="material-icons">undo</i>
+            </md-button>
 
-        <a ng-click="model.viewPost(post)">
-            <p>{{post.content}}</p>
-        </a>
+            <md-truncate class="toolbar">
+                Claper
+            </md-truncate>
+
+            <span flex></span>
+            <md-button class="md-fab md-mini" aria-label="profile" ng-href="#/profile">
+                <i class="material-icons">person</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <div layout-align="center center" class="md-padding" layout="column">
+        <md-card>
+            <md-card-title layout="row" layout-align="space-between center">
+                    <h1>{{model.title}}</h1>
+                    <md-button class="md-fab md-warn md-mini" ng-href="#/posts/new">
+                        <i class="material-icons">add</i>
+                    </md-button>
+            </md-card-title>
+            <md-divider></md-divider>
+            <md-card-content>
+                <md-list>
+                    <md-list-item class="md-3-line" ng-repeat="post in model.posts" ng-href="#/post/detail/{{post._id}}">
+                        <img class="md-avatar" ng-src="{{model.getPostTypeAvatar(post)}}">
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{post.classCode}}</h3>
+                            <h4>{{post.dateCreated}}</h4>
+                            <p>{{post.content}}</p>
+                        </div>
+                        <md-divider ng-if="!$last"></md-divider>
+                    </md-list-item>
+                </md-list>
+            </md-card-content>
+        </md-card>
     </div>
-    <a class="btn btn-success">
-        Add a new post
-    </a>
 </div>

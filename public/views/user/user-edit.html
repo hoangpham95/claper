@@ -18,9 +18,12 @@
     <md-card>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Register</span>
-                <span class="md-subhead">Register to start posting about what you need</span>
+                <span class="md-headline">Edit</span>
+                <span class="md-subhead">Make change(s) to your profile</span>
             </md-card-title-text>
+            <md-button class="md-fab md-primary" ng-click="model.updateUser()">
+                <md-icon md-font-library="materials-icon">check</md-icon>
+            </md-button>
         </md-card-title>
         <md-divider></md-divider>
         <md-card-content>
@@ -30,24 +33,6 @@
                     <label>Your user name</label>
                     <input required name="username" ng-model="model.user.username">
                     <div ng-messages="model.userNameError">
-                        <div ng-message="required">This field is required</div>
-                    </div>
-                </md-input-container>
-
-                <label><b>Password</b></label>
-                <md-input-container class="md-block">
-                    <label>Your password</label>
-                    <input required name="password" type="password" ng-model="model.user.password">
-                    <div ng-messages="model.passwordError">
-                        <div ng-message="required">This field is required</div>
-                    </div>
-                </md-input-container>
-
-                <label><b>Verify password</b></label>
-                <md-input-container class="md-block">
-                    <label>Verify password</label>
-                    <input required name="password" type="password" ng-model="model.user.verifyPassword">
-                    <div ng-messages="model.passwordVerifyError">
                         <div ng-message="required">This field is required</div>
                     </div>
                 </md-input-container>
@@ -80,15 +65,5 @@
                 </md-input-container>
             </div>
         </md-card-content>
-        <md-card-actions>
-            <div layout="row" layout-align="center end">
-                <md-button ng-click="model.createUser()" class="md-primary md-raised">
-                    Register
-                </md-button>
-                <md-button ng-click="model.gobackLogin()" class="md-warn md-raised">
-                    Cancel
-                </md-button>
-            </div>
-        </md-card-actions>
     </md-card>
 </md-content>

@@ -1,0 +1,90 @@
+<div>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button aria-label="Go Back" ng-href="#/posts/all">
+                <i class="material-icons">undo</i>
+            </md-button>
+
+            <md-truncate class="toolbar">
+                Post detail
+            </md-truncate>
+
+            <span flex></span>
+            <md-button class="md-fab md-mini" aria-label="profile" ng-href="#/profile">
+                <i class="material-icons">person</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <div class="ext-content md-padding" layout="row">
+        <div hide-sm hide-xs flex-gt-sm="35">
+            <h1>Post list</h1>
+            <div layout="row">
+                <input flex="80" placeholder="Search posts by keyword"
+                       ng-model="model.searchKeyword">
+                <md-button flex="20" class="md-primary md-raised" ng-click="model.search()">Search</md-button>
+            </div>
+            <md-list layout-wrap>
+                <md-list-item class="md-3-line" ng-repeat="post in model.posts" ng-href="#/post/detail/{{post._id}}">
+                    <img class="md-avatar" ng-src="{{model.getPostTypeAvatar(post)}}">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{post.classCode}}</h3>
+                        <h4>{{post.dateCreated}}</h4>
+                        <p>{{post.content.substring(0, 120) + '...'}}</p>
+                    </div>
+                    <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+            </md-list>
+        </div>
+
+        <md-card flex-gt-sm="65" layout-wrap>
+            <md-card-content>
+                <div layout="row" layout-align="space-between center">
+                    <h1>{{model.post.postType.toUpperCase()}}</h1>
+                    <div class="row" ng-show="!model.isCurrentUser">
+                        <md-button class="md-fab" ng-click="model.like(true)">
+                            <md-icon md-font-library="material-icons">thumb_up</md-icon>
+                        </md-button>
+                        <md-button class="md-fab" ng-click="model.unlike(false)">
+                            <md-icon md-font-library="material-icons">thumb_down</md-icon>
+                        </md-button>
+                    </div>
+                </div>
+
+                <md-divider></md-divider>
+
+                <h2><b>{{model.post.classCode}}: {{model.post.className}}</b></h2>
+                <p>{{model.post.dateCreated}}</p>
+                <div>
+                    <p><b>Offer amount</b>: <b>${{model.post.offerAmount}}</b>/hour</p>
+                    <p><b>Can meet at</b>: {{model.post.place}}</p>
+                    <p><b>Content</b>: <br> {{model.post.content}}</p>
+                </div>
+                <div layout="row" layout-align="center end">
+                    <div ng-show="!model.isCurrentUser && model.post.postType !== 'question'">
+                        <md-button class="md-warn md-raised"
+                                   ng-href="#/post/{{model.post._id}}/review/new">
+                            <md-icon md-font-library="material-icons">mode_comment</md-icon>
+                            Review
+                        </md-button>
+                    </div>
+                    <md-button class="md-primary md-raised" ng-click="model.shareFacebook()">
+                        <md-icon md-font-library="material-icons">share</md-icon>
+                        Share
+                    </md-button>
+                    <md-button class="md-raised"
+                               ng-show="model.isCurrentUser"
+                               ng-href="#/post/edit/{{model.post._id}}">
+                        <md-icon md-font-library="material-icons">mode_edit</md-icon>
+                        Edit post
+                    </md-button>
+                    <md-button class="md-raised" ng-show="!model.isCurrentUser"
+                        ng-click="model.sendMail()">
+                        <md-icon md-font-library="material-icons">email</md-icon>
+                        Contact
+                    </md-button>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

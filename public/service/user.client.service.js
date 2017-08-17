@@ -12,7 +12,10 @@
         var api = {
             "createUser": createUser,
             "getUserById": getUserById,
-            "login": login
+            "login": login,
+            "getUserPosts": getUserPosts,
+            "getReviewsByOtherId": getReviewsByOtherId,
+            "updateUser": updateUser,
         };
 
         return api;
@@ -22,11 +25,23 @@
         }
 
         function login(user) {
-            return $http.post("/api/user/login", user);
+            return $http.post("/api/login", user);
         }
 
         function createUser(user) {
-            return $http.post("/api/user", user);
+            return $http.post("/api/register", user);
+        }
+
+        function getUserPosts(userId) {
+            return $http.get("/api/posts/" + userId);
+        }
+
+        function getReviewsByOtherId(id) {
+            return $http.get('/api/user/' + id + '/reviews');
+        }
+
+        function updateUser(user) {
+            return $http.put('/api/user', user);
         }
     }
 

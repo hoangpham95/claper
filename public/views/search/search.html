@@ -24,8 +24,21 @@
             <option value="" disabled selected>Select the class</option>
         </select>
 
-        <a class="btn btn-success center" ng-click="model.search()">
-            Search
-        </a>
+        <div>
+            <a class="btn btn-success center" ng-click="model.search()">
+                Search
+            </a>
+            <a class="btn btn-success center" ng-href="#/login">
+                Login
+            </a>
+        </div>
+    </div>
+    <div>
+        <p>
+            Total number of posts is {{model.totalPosts}}.
+            <a ng-href="#/posts/all/">
+                Click here to view all
+            </a>
+        </p>
     </div>
 </div>

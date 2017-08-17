@@ -13,7 +13,9 @@ module.exports = function() {
       createUser: createUser,
       getUserById: getUserById,
       login: login,
-      getAllUser: getAllUser
+      getAllUser: getAllUser,
+      findUserByUsername: findUserByUsername,
+      updateUser: updateUser,
   };
 
   function createUser(user) {
@@ -76,6 +78,36 @@ module.exports = function() {
               deferred.resolve(result);
           }
       });
+
+      return deferred.promise;
+  }
+
+  function findUserByUsername(username) {
+      var deferred = q.defer();
+
+      userModel.findOne({username: username})
+          .exec(function(err, result) {
+              if (err) {
+                  deferred.reject(err);
+              } else {
+                  deferred.resolve(result);
+              }
+          });
+
+      return deferred.promise;
+  }
+
+  function updateUser(user) {
+      var deferred = q.defer();
+
+      userModel.findOneAndUpdate({_id: user._id}, user)
+          .exec(function (err, result) {
+              if (!err) {
+                  deferred.resolve(result);
+              } else {
+                  deferred.reject(err);
+              }
+          });
 
       return deferred.promise;
   }
