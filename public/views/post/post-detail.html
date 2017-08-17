@@ -41,7 +41,7 @@
             <md-card-content>
                 <div layout="row" layout-align="space-between center">
                     <h1>{{model.post.postType.toUpperCase()}}</h1>
-                    <div class="row" ng-show="!model.isCurrentUser">
+                    <div class="row" ng-show="!model.isCurrentUser || model.isUserAdmin()">
                         <md-button class="md-fab" ng-click="model.like(true)">
                             <md-icon md-font-library="material-icons">thumb_up</md-icon>
                         </md-button>
@@ -61,7 +61,7 @@
                     <p><b>Content</b>: <br> {{model.post.content}}</p>
                 </div>
                 <div layout="row" layout-align="center end">
-                    <div ng-show="!model.isCurrentUser && model.post.postType !== 'question'">
+                    <div ng-show="(!model.isCurrentUser && model.post.postType !== 'question') || model.isUserAdmin()">
                         <md-button class="md-warn md-raised"
                                    ng-href="#/post/{{model.post._id}}/review/new">
                             <md-icon md-font-library="material-icons">mode_comment</md-icon>
@@ -73,12 +73,12 @@
                         Share
                     </md-button>
                     <md-button class="md-raised"
-                               ng-show="model.isCurrentUser"
+                               ng-show="model.isCurrentUser || model.isUserAdmin()"
                                ng-href="#/post/edit/{{model.post._id}}">
                         <md-icon md-font-library="material-icons">mode_edit</md-icon>
                         Edit post
                     </md-button>
-                    <md-button class="md-raised" ng-show="!model.isCurrentUser"
+                    <md-button class="md-raised" ng-show="!model.isCurrentUser || model.isUserAdmin()"
                         ng-click="model.sendMail()">
                         <md-icon md-font-library="material-icons">email</md-icon>
                         Contact

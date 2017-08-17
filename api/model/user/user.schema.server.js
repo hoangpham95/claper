@@ -12,6 +12,7 @@ module.exports = function () {
         lastName: String,
         email: String,
         phone: String,
+        isAdmin: {type: Boolean, default: false},
         isSchoolOfficial: Boolean,
         dateCreated: {type: Date, default: Date.now}
     }, {collection: 'user'});

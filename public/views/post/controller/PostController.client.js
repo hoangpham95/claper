@@ -182,6 +182,7 @@
         vm.getPostTypeAvatar = getPostTypeAvatar;
         vm.like = like;
         vm.sendMail = sendMail;
+        vm.isUserAdmin = isUserAdmin;
 
         function init() {
             var postId = $routeParams.postId;
@@ -248,6 +249,10 @@
         function sendMail() {
             var subject = "About your post: " + vm.post.classCode;
             $window.open('mailto:' + vm.author.email +"?subject=" + subject, "_self");
+        }
+
+        function isUserAdmin() {
+            return $rootScope.currentUser && $rootScope.currentUser.isAdmin;
         }
 
         init();
