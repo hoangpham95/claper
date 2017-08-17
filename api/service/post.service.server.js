@@ -13,6 +13,8 @@ module.exports = function(app, model) {
     app.post('/api/like', pressingLikeForPost);
     app.put('/api/post', updatePost);
 
+    app.delete('/api/post/:postId', deletePost);
+
     function createPost(req, res) {
         var post = req.body;
 
@@ -95,6 +97,17 @@ module.exports = function(app, model) {
         model.postModel.updatePost(post)
             .then(function(post) {
                 res.send(post);
+            }, function(error) {
+                res.status(500).send(error);
+            })
+    }
+
+    function deletePost(req, res) {
+        var postId = req.params.postId;
+
+        model.postModel.deletePost(postId)
+            .then(function(result) {
+                res.sendStatus(200);
             }, function(error) {
                 res.status(500).send(error);
             })

@@ -17,7 +17,8 @@ module.exports = function() {
         findNumberOfPosts: findNumberOfPosts,
         getAllPosts: getAllPosts,
         likePost: likePost,
-        updatePost: updatePost
+        updatePost: updatePost,
+        deletePost: deletePost,
     };
 
     function createPost(post) {
@@ -152,6 +153,20 @@ module.exports = function() {
                     deferred.reject(error);
                 }
             });
+
+        return deferred.promise;
+    }
+
+    function deletePost(postId) {
+        var deferred = q.defer();
+
+        postModel.remove({_id: postId}).exec(function(err, result) {
+            if (result) {
+                deferred.resolve(result);
+            } else {
+                deferred.reject(error);
+            }
+        });
 
         return deferred.promise;
     }

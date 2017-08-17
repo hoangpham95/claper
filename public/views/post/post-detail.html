@@ -41,7 +41,7 @@
             <md-card-content>
                 <div layout="row" layout-align="space-between center">
                     <h1>{{model.post.postType.toUpperCase()}}</h1>
-                    <div class="row" ng-show="!model.isCurrentUser || model.isUserAdmin()">
+                    <div class="row" ng-show="!model.isCurrentUser">
                         <md-button class="md-fab" ng-click="model.like(true)">
                             <md-icon md-font-library="material-icons">thumb_up</md-icon>
                         </md-button>
@@ -54,13 +54,13 @@
                 <md-divider></md-divider>
 
                 <h2><b>{{model.post.classCode}}: {{model.post.className}}</b></h2>
-                <p>{{model.post.dateCreated}}</p>
+                <p>By <a ng-href="#/user/{{model.author._id}}">{{model.author.username}}</a></p>
                 <div>
                     <p><b>Offer amount</b>: <b>${{model.post.offerAmount}}</b>/hour</p>
                     <p><b>Can meet at</b>: {{model.post.place}}</p>
                     <p><b>Content</b>: <br> {{model.post.content}}</p>
                 </div>
-                <div layout="row" layout-align="center end">
+                <div layout="row" layout-xs="column" layout-align="center end">
                     <div ng-show="(!model.isCurrentUser && model.post.postType !== 'question') || model.isUserAdmin()">
                         <md-button class="md-warn md-raised"
                                    ng-href="#/post/{{model.post._id}}/review/new">
@@ -82,6 +82,11 @@
                         ng-click="model.sendMail()">
                         <md-icon md-font-library="material-icons">email</md-icon>
                         Contact
+                    </md-button>
+                    <md-button ng-show="model.isUserAdmin() || model.isCurrentUser" ng-click="model.deletePost()"
+                               class="md-raised md-danger">
+                        <md-icon md-font-library="material-icons">delete</md-icon>
+                        Delete
                     </md-button>
                 </div>
             </md-card-content>

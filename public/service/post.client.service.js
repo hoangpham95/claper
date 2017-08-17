@@ -13,6 +13,7 @@
             "getAllPosts": getAllPosts,
             "pressLikeButton": pressLikeButton,
             "updatePost": updatePost,
+            "deletePost": deletePost,
         };
 
         return api;
@@ -35,6 +36,10 @@
 
         function updatePost(post) {
             return $http.put('/api/post', post);
+        }
+
+        function deletePost(post) {
+            return $http.delete('/api/post/' + post._id);
         }
     }
 })();
