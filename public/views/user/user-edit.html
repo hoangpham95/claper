@@ -9,6 +9,9 @@
         </md-truncate>
 
         <span flex></span>
+        <md-button class="md-fab md-mini" ng-show="model.isCurrentUser()" aria-label="delete user" ng-click="model.logout()">
+            <i class="material-icons">exit_to_app</i>
+        </md-button>
         <md-button class="md-fab md-mini" aria-label="delete user" ng-click="model.deleteUser()">
             <i class="material-icons">delete</i>
         </md-button>
@@ -16,8 +19,8 @@
 </md-toolbar>
 <md-content class="md-padding">
     <md-card class="middle-width">
-        <div ng-show="model.adminError" class="alert alert-danger">
-            {{model.adminError}}
+        <div ng-show="model.error" class="alert alert-danger">
+            {{model.error}}
         </div>
         <md-card-title>
             <md-card-title-text>

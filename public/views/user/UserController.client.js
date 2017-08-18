@@ -81,6 +81,7 @@
         vm.deleteFav = deleteFav;
         vm.deleteUser = deleteUser;
         vm.gotoEdit = gotoEdit;
+        vm.logout = logout;
 
         vm.isAdmin = false;
 
@@ -155,7 +156,7 @@
 
         function deleteUser() {
             if (vm.user.isAdmin) {
-                vm.adminError = "Can't delete an admin account";
+                vm.error = "Can't delete an admin account";
                 return;
             }
 
@@ -170,6 +171,15 @@
         function gotoEdit() {
             $location.url('/user/' + vm.uid + '/edit');
 
+        }
+
+        function logout() {
+            UserService.logout()
+                .success(function(res) {
+                    $location.url('/')
+                }).error(function(res) {
+                    vm.error = "Cannot log out";
+            })
         }
 
         init();

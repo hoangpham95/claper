@@ -18,7 +18,7 @@
         </div>
     </md-toolbar>
     <div class="md-padding">
-        <div ng-show="model.user.isAdmin" class="alert alert-success">
+        <div ng-show="model.isCurrentUser() && model.user.isAdmin" class="alert alert-success">
             You are Admin. Click <a ng-href="#/admin">here</a> to go to admin page.
         </div>
         <md-card>

@@ -20,7 +20,8 @@
             "getUserFavorites": getUserFavorites,
             "deleteFav": removeFavorite,
             "deleteUser": deleteUser,
-            "getAllUser": getAllUser
+            "getAllUser": getAllUser,
+            "logout": logout,
         };
 
         return api;
@@ -67,6 +68,10 @@
 
         function getAllUser() {
             return $http.get('/api/users/all');
+        }
+
+        function logout() {
+            return $http.get('/api/logout');
         }
     }
 
