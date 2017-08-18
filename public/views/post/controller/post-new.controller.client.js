@@ -99,6 +99,11 @@
                 return;
             }
 
+            if (!$rootScope.currentUser.isSchoolOfficial && post.postType === 'application')  {
+                vm.error = "You can't post application";
+                return;
+            }
+
             post.author = vm.uid;
             post.place = vm.selectedPlace.formatted_address;
 

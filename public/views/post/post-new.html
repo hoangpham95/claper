@@ -29,6 +29,9 @@
             </div>
             <md-divider></md-divider>
             <div layout="column">
+                <div ng-show="model.error" class="alert alert-danger">
+                    {{model.error}}
+                </div>
                 <h2>Choose your class</h2>
                 <div layout="row" layout-xs="column">
                     <div flex-gt-xs>
