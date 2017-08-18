@@ -84,7 +84,7 @@
             if (navigator.geolocation) {
 
                 navigator.geolocation.getCurrentPosition(function(res, err) {
-                    if (!err) {
+                    if (!err && res && res !== null) {
                         vm.location = new google.maps.LatLng(res.coords.latitude, res.coords.longitude);
                     }
                 });
