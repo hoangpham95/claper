@@ -154,6 +154,11 @@
         }
 
         function deleteUser() {
+            if (vm.user.isAdmin) {
+                vm.adminError = "Can't delete an admin account";
+                return;
+            }
+
             UserService.deleteUser(vm.uid)
                 .success(function(result) {
                     $location.url('/');
