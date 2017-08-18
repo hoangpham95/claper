@@ -54,6 +54,7 @@
         vm.updateUser = updateUser;
         vm.deleteFav = deleteFav;
         vm.deleteUser = deleteUser;
+        vm.gotoEdit = gotoEdit;
 
         vm.isAdmin = false;
 
@@ -132,6 +133,14 @@
                 }).error(function (error) {
                     console.log(error);
             })
+        }
+
+        function gotoEdit() {
+            if ($routeParams.userId) {
+                $location.url('/user/' + $routeParams.userId + '/edit');
+            } else {
+                $location.url('/profile');
+            }
         }
 
         init();

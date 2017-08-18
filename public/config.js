@@ -54,6 +54,12 @@
                 controllerAs: "model",
                 resolve: {loggedin: checkLoggedIn}
             })
+            .when("/user/:userId/edit", {
+                templateUrl: "./views/user/user-edit.html",
+                controller: "UserProfileController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
+            })
             .when("/post/detail/:postId", {
                 templateUrl: "./views/post/post-detail.html",
                 controller: "PostDetailController",

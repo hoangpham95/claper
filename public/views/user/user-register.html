@@ -52,6 +52,14 @@
                     </div>
                 </md-input-container>
 
+                <div layout="row">
+                    <label>Are you school's official?</label>
+                    <md-radio-group ng-model="model.user.isSchoolOfficial" style="margin-left: 10px" layout="row">
+                        <md-radio-button value="true" class="md-primary">Yes</md-radio-button>
+                        <md-radio-button value="false" class="md-primary">No</md-radio-button>
+                    </md-radio-group>
+                </div>
+
                 <label><b>First name</b></label>
                 <md-input-container class="md-block">
                     <label>First name</label>

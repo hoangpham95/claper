@@ -12,7 +12,7 @@
             <span flex></span>
             <md-button class="md-fab md-mini"
                        ng-show="model.isCurrentUser() || model.isAdmin"
-                       aria-label="profile" ng-href="#/profile/edit">
+                       aria-label="profile" ng-href="model.gotoEdit()">
                 <i class="material-icons">mode_edit</i>
             </md-button>
         </div>
