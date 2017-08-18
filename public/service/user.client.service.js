@@ -71,7 +71,7 @@
         }
 
         function logout() {
-            return $http.get('/api/logout');
+            return $http.post('/api/logout');
         }
     }
 
