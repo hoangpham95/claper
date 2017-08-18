@@ -79,6 +79,8 @@
                     vm.error = "User error";
                 });
 
+            vm.location = new google.maps.LatLng(42.3398070,-71.0891720);
+
             if (navigator.geolocation) {
 
                 navigator.geolocation.getCurrentPosition(function(res, err) {
@@ -86,8 +88,6 @@
                         vm.location = new google.maps.LatLng(res.coords.latitude, res.coords.longitude);
                     }
                 });
-            } else {
-                vm.location = new google.maps.LatLng(42.3398070,-71.0891720); // Northeastern Uni
             }
 
             vm.map = new google.maps.Map(document.getElementById('ggMap'), {
