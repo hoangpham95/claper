@@ -73,11 +73,6 @@
                 return;
             }
 
-            if (!post.place) {
-                vm.error = "You must select a place to meet";
-                return;
-            }
-
 
             if (!post.postType) {
                 vm.error = "You must select type of post";
@@ -106,6 +101,11 @@
 
             post.author = vm.uid;
             post.place = vm.selectedPlace.formatted_address;
+
+            if (!post.place) {
+                vm.error = "You must select a place to meet";
+                return;
+            }
 
             vm.error = null;
 
