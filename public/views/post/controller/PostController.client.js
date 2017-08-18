@@ -43,9 +43,9 @@
 
         function getPostTypeAvatar(post) {
             var postTypes = {
-                "question": 'https://image.flaticon.com/icons/svg/3/3711.svg',
+                "question": 'https://image.flaticon.com/icons/svg/237/237188.svg',
                 "helper": 'https://image.flaticon.com/icons/svg/486/486391.svg',
-                "application": 'https://image.flaticon.com/icons/svg/149/149338.svg',
+                "application": 'https://www.flaticon.com/premium-icon/icons/svg/238/238033.svg',
             };
 
             return postTypes[post.postType];

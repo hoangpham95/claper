@@ -17,7 +17,7 @@
     </md-toolbar>
 
     <div layout-align="center center" class="md-padding" layout="column">
-        <md-card>
+        <md-card class="middle-width">
             <md-card-title layout="row" layout-align="space-between center">
                     <h1>{{model.title}}</h1>
                     <md-button class="md-fab md-warn md-mini" ng-href="#/posts/new">
@@ -32,7 +32,7 @@
                         <div class="md-list-item-text" layout="column">
                             <h3>{{post.classCode}}</h3>
                             <h4>{{post.dateCreated}}</h4>
-                            <p>{{post.content}}</p>
+                            <p>{{post.content.substring(0, 120).concat('...')}}</p>
                         </div>
                         <md-divider ng-if="!$last"></md-divider>
                     </md-list-item>

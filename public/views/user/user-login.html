@@ -1,6 +1,17 @@
-<md-content>
-    <div layout="column">
-        <md-card>
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button aria-label="Go Back" ng-href="#/">
+            <i class="material-icons">arrow_back</i>
+        </md-button>
+
+        <md-truncate class="toolbar">
+            Claper
+        </md-truncate>
+    </div>
+</md-toolbar>
+<div>
+    <md-content class="md-padding">
+        <md-card class="md-padding middle-width">
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">Login</span>
@@ -32,9 +43,9 @@
                 </div>
             </md-card-content>
             <md-button class="md-primary md-raised md-block"
-                ng-click="model.login()">
+                       ng-click="model.login()">
                 Login
             </md-button>
         </md-card>
-    </div>
-</md-content>
+    </md-content>
+</div>
