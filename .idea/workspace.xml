@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="21670454-4693-4f5d-b996-e5def5205540" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/search/search-material.html" afterPath="$PROJECT_DIR$/public/views/search/search-material.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/user/user-profile.html" afterPath="$PROJECT_DIR$/public/views/user/user-profile.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -67,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search-material.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="search-material.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/search/search-material.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+            <state relative-caret-position="300">
+              <caret line="20" column="55" lean-forward="false" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
               <folding>
                 <element signature="n#style#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#label#0;n#p#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
@@ -80,14 +81,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user-profile.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user-profile.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/views/user/user-profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="27" column="66" lean-forward="false" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
+            <state relative-caret-position="300">
+              <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-divider#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#md-divider#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -213,7 +215,6 @@
         <option value="$PROJECT_DIR$/api/model/user/user.model.server.js" />
         <option value="$PROJECT_DIR$/public/config.js" />
         <option value="$PROJECT_DIR$/public/views/user/UserController.client.js" />
-        <option value="$PROJECT_DIR$/public/views/user/user-profile.html" />
         <option value="$PROJECT_DIR$/api/model/user/user.schema.server.js" />
         <option value="$PROJECT_DIR$/public/views/post/controller/post-edit.controller.client.js" />
         <option value="$PROJECT_DIR$/public/service/post.client.service.js" />
@@ -228,6 +229,7 @@
         <option value="$PROJECT_DIR$/public/views/post/post-new.html" />
         <option value="$PROJECT_DIR$/public/views/review/review-new.html" />
         <option value="$PROJECT_DIR$/public/views/search/search-material.html" />
+        <option value="$PROJECT_DIR$/public/views/user/user-profile.html" />
       </list>
     </option>
   </component>
@@ -729,12 +731,12 @@
       <workItem from="1502928346585" duration="1569000" />
       <workItem from="1502934654981" duration="19625000" />
       <workItem from="1502987948501" duration="16846000" />
-      <workItem from="1503009648396" duration="6375000" />
+      <workItem from="1503009648396" duration="6657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163830000" />
+    <option name="totallyTimeSpent" value="164112000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="199" y="24" width="1291" height="876" extended-state="4" />
@@ -1093,18 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/user/user-profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="27" column="66" lean-forward="false" selection-start-line="27" selection-start-column="66" selection-end-line="27" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-divider#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-divider#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
@@ -1147,11 +1137,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/search/search-material.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+        <state relative-caret-position="300">
+          <caret line="20" column="55" lean-forward="false" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
           <folding>
             <element signature="n#style#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#0;n#p#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/user/user-profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-divider#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-divider#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
