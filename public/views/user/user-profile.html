@@ -6,18 +6,21 @@
             </md-button>
 
             <md-truncate class="toolbar">
-                Claper
+                {{model.user.firstName}} {{model.user.lastName}}
             </md-truncate>
 
             <span flex></span>
             <md-button class="md-fab md-mini"
                        ng-show="model.isCurrentUser() || model.isAdmin"
-                       aria-label="profile" ng-href="model.gotoEdit()">
+                       aria-label="profile" ng-click="model.gotoEdit()">
                 <i class="material-icons">mode_edit</i>
             </md-button>
         </div>
     </md-toolbar>
     <div class="md-padding">
+        <div ng-show="model.user.isAdmin" class="alert alert-success">
+            You are Admin. Click <a>here</a> to go to admin page.
+        </div>
         <md-card>
             <md-card-content>
                 <div layout="row" layout-sm="column" layout-xs="column">

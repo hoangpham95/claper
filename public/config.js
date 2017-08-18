@@ -89,6 +89,12 @@
                 controller: "UserProfileController",
                 controllerAs: "model",
                 resolve: {loggedin: checkLoggedIn}
+            })
+            .when("/admin", {
+                templateUrl: "./views/admin/admin-page.html",
+                controller: "AdminController",
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
             });
     }
     var checkLoggedIn = function($q, $timeout, $http, $location, $rootScope) {

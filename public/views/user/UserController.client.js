@@ -88,6 +88,7 @@
             if (!vm.uid) {
                 vm.uid = $rootScope.currentUser._id;
             }
+
             if ($rootScope.currentUser) {
                 vm.isAdmin = $rootScope.currentUser.isAdmin;
             }
@@ -162,11 +163,8 @@
         }
 
         function gotoEdit() {
-            if ($routeParams.userId) {
-                $location.url('/user/' + $routeParams.userId + '/edit');
-            } else {
-                $location.url('/profile');
-            }
+            $location.url('/user/' + vm.uid + '/edit');
+
         }
 
         init();

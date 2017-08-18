@@ -10,7 +10,7 @@ module.exports = function(app, model) {
     app.post('/api/user/', createUser);
     app.get('/api/user/:userId', getUserById);
     app.post('/api/user/login', login);
-    app.get('/api/user/all', getAllUser);
+    app.get('/api/users/all', getAllUser);
     app.put('/api/user', updateUser);
     app.put('/api/favPost', favoritePost);
     app.get('/api/userFav', getUserFavorites);

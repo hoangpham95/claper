@@ -19,7 +19,8 @@
             "favoritePost": favoritePost,
             "getUserFavorites": getUserFavorites,
             "deleteFav": removeFavorite,
-            "deleteUser": deleteUser
+            "deleteUser": deleteUser,
+            "getAllUser": getAllUser
         };
 
         return api;
@@ -62,6 +63,10 @@
 
         function deleteUser(userId) {
             return $http.delete('/api/user/' + userId);
+        }
+
+        function getAllUser() {
+            return $http.get('/api/users/all');
         }
     }
 
