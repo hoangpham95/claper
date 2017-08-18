@@ -73,6 +73,12 @@
                 return;
             }
 
+            if (!post.place) {
+                vm.error = "You must select a place to meet";
+                return;
+            }
+
+
             if (!post.postType) {
                 vm.error = "You must select type of post";
                 return;
@@ -85,6 +91,11 @@
 
             if (!post.offerAmount) {
                 vm.error = "You must specify the offer amount";
+                return;
+            }
+
+            if ($rootScope.currentUser.isSchoolOfficial && post.postType !== 'application') {
+                vm.postTypeError = "You can't post question or offer.";
                 return;
             }
 

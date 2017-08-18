@@ -32,6 +32,24 @@
 
         function submit() {
             console.log(vm.review);
+
+            var review = vm.review;
+
+            if (!review.title) {
+                vm.error = "Your title should not be empty";
+                return;
+            }
+
+            if (!review.rating) {
+                vm.error = "Your rating should not be empty";
+                return;
+            }
+
+            if (!review.content) {
+                vm.error = "Your content should not be empty";
+                return;
+            }
+
             ReviewService.uploadReview(vm.review)
                 .success(function(result) {
                     console.log("Successfully upload review: " + JSON.stringify(result));

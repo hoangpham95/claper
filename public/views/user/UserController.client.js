@@ -33,6 +33,32 @@
 
         function createUser() {
             var user = vm.user;
+
+            if (!user) {
+                vm.error = "User cannot be empty";
+                return;
+            }
+
+            if (!user.username) {
+                vm.userNameError = "Username cannot be empty";
+                return;
+            }
+
+            if (!user.password || !user.verifyPassword) {
+                vm.passwordError = "Username cannot be empty";
+                return;
+            }
+
+            if (!user.isSchoolOfficial) {
+                vm.isSchoolOfficialError = "You must specify this";
+                return;
+            }
+
+            if (!user.firstName || !user.lastName || !user.email) {
+                vm.infoError = "Your info must be included";
+                return;
+            }
+
             UserService.createUser(user)
                 .success(function(res) {
                     vm.message = "Register successfully";

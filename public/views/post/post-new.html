@@ -74,6 +74,9 @@
 
                 <div layout="column" style="margin-bottom: 15px">
                     <label style="margin-bottom: 10px"><i>Post type</i></label>
+                    <div ng-show="model.postTypeError" class="alert alert-danger">
+                        {{model.postTypeError}}
+                    </div>
                     <md-radio-group ng-model="model.post.postType" layout="row">
                         <md-radio-button value="question" class="md-primary">Question</md-radio-button>
                         <md-radio-button value="helper" class="md-primary">Help someone</md-radio-button>

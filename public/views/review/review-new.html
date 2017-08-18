@@ -36,10 +36,16 @@
 
         <md-divider></md-divider>
 
+        <div ng-show="model.error" class="alert alert-danger">
+            {{model.error}}
+        </div>
+
         <md-card-content>
             <div ng-show="{{model.error}}" class="alert alert-danger">
                 {{model.error}}
             </div>
+
+            <p style="color: red">You can't edit your review in the future, so review it before submitting it.</p>
 
             <md-input-container class="md-block">
                 <label>Summary</label>

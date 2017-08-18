@@ -47,7 +47,7 @@
                 <md-input-container class="md-block">
                     <label>Verify password</label>
                     <input required name="password" type="password" ng-model="model.user.verifyPassword">
-                    <div ng-messages="model.passwordVerifyError">
+                    <div ng-messages="model.passwordError">
                         <div ng-message="required">This field is required</div>
                     </div>
                 </md-input-container>
@@ -86,6 +86,10 @@
                         <div ng-message="required">This field is required</div>
                     </div>
                 </md-input-container>
+
+                <div ng-show="model.infoError" class="alert alert-danger">
+                    {{model.infoError}}
+                </div>
             </div>
         </md-card-content>
         <md-card-actions>
