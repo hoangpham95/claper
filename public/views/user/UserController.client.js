@@ -45,19 +45,26 @@
         }
     }
 
-    function UserProfileController($rootScope, $routeParams, $location, UserService) {
+    function UserProfileController($rootScope, $route, $routeParams, $location, UserService) {
         var vm = this;
         vm.uid = $routeParams.userId;
 
         vm.viewPost = viewPost;
         vm.isCurrentUser = isCurrentUser;
         vm.updateUser = updateUser;
+        vm.deleteFav = deleteFav;
+        vm.deleteUser = deleteUser;
+
+        vm.isAdmin = false;
 
         function init() {
             if (!vm.uid) {
                 vm.uid = $rootScope.currentUser._id;
             }
-            console.log($rootScope.currentUser);
+            if ($rootScope.currentUser) {
+                vm.isAdmin = $rootScope.currentUser.isAdmin;
+            }
+
             UserService.getUserById(vm.uid)
                 .success(function(user) {
                     vm.user = user;
@@ -79,6 +86,13 @@
                 }).error(function(error) {
                     vm.error = error.message;
             });
+
+            UserService.getUserFavorites(vm.uid)
+                .success(function(posts) {
+                    vm.userFavorites = posts;
+                }).error(function(error) {
+                    vm.error = error;
+            });
         }
 
         function viewPost(post) {
@@ -99,6 +113,24 @@
                     $location.url('/profile');
                 }).error(function(err) {
                     console.log(err);
+            })
+        }
+
+        function deleteFav(postId) {
+            UserService.deleteFav(vm.uid, postId)
+                .success(function(result) {
+                    $route.reload();
+                }).error(function (error) {
+                    console.log(error);
+            })
+        }
+
+        function deleteUser() {
+            UserService.deleteUser(vm.uid)
+                .success(function(result) {
+                    $location.url('/');
+                }).error(function (error) {
+                    console.log(error);
             })
         }
 

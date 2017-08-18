@@ -2,7 +2,7 @@
     <md-toolbar>
         <div class="md-toolbar-tools">
             <md-button aria-label="Go Back" ng-href="#/">
-                <i class="material-icons">undo</i>
+                <i class="material-icons">arrow_back</i>
             </md-button>
 
             <md-truncate class="toolbar">
@@ -10,8 +10,10 @@
             </md-truncate>
 
             <span flex></span>
-            <md-button class="md-fab md-mini" aria-label="profile" ng-href="#/profile">
-                <i class="material-icons">person</i>
+            <md-button class="md-fab md-mini"
+                       ng-show="model.isCurrentUser() || model.isAdmin"
+                       aria-label="profile" ng-href="#/profile/edit">
+                <i class="material-icons">mode_edit</i>
             </md-button>
         </div>
     </md-toolbar>
@@ -19,31 +21,40 @@
         <md-card>
             <md-card-content>
                 <div layout="row" layout-sm="column" layout-xs="column">
-                    <div flex-gt-sm="30" style="height: 325px">
-                        <div>
-                            <div layout="row" layout-align="space-between center">
-                                <span class="md-headline">Profile</span>
-                                <md-button class="md-fab md-primary"
-                                           aria-label="Edit"
-                                           ng-href="#/profile/edit"
-                                           ng-show="model.isCurrentUser()">
-                                    <i class="material-icons">edit</i>
-                                </md-button>
-                            </div>
-                        </div>
+                    <div flex-gt-sm="33">
+                        <label class="md-headline">Favorites</label>
                         <!--<md-divider></md-divider>-->
-                        <md-card-content layout-padding>
-                            <p><b>Username:</b> {{model.user.username}}</p>
-                            <p><b>First name:</b> {{model.user.firstName}}</p>
-                            <p><b>Last name:</b> {{model.user.lastName}}</p>
-                            <p><b>Email:</b> {{model.user.email}}</p>
-
-                        </md-card-content>
+                        <div>
+                            <label ng-show="model.userFavorites.length === 0">
+                                No favorites!
+                            </label>
+                            <md-list ng-show="model.userFavorites.length > 0">
+                                <md-list-item class="md-3-line" ng-repeat="post in model.userFavorites"
+                                              ng-href="#/post/detail/{{post._id}}">
+                                    <div layout="row" layout-align="space-between center">
+                                        <div class="md-list-item-text">
+                                            <!--<h2>{{post.postType}}</h2>-->
+                                            <h3><b>{{post.classCode}}: {{post.className}}</b></h3>
+                                            <h5>Offer: ${{post.offerAmount}}</h5>
+                                            <p>{{post.content.substring(0, 100).concat('...')}}</p>
+                                        </div>
+                                        <md-button class="md-fab md-warn"
+                                                   ng-show="model.isAdmin || model.isCurrentUser()"
+                                                   ng-click="model.deleteFav(post._id)">
+                                            <md-icon md-font-library="material-icons">
+                                                delete
+                                            </md-icon>
+                                        </md-button>
+                                    </div>
+                                    <md-divider ng-if="!$last"></md-divider>
+                                </md-list-item>
+                            </md-list>
+                        </div>
                     </div>
 
                     <md-divider style="margin-right: 10px"></md-divider>
 
-                    <div flex-gt-sm="35" style="margin-bottom: 20px">
+                    <div flex-gt-sm="33" style="margin-bottom: 20px">
                         <div>
                             <div layout="row" layout-align="space-between center">
                                 <label class="md-headline">Posts</label>
@@ -77,7 +88,7 @@
 
                     <md-divider style="margin-right: 10px"></md-divider>
 
-                    <div flex-gt-sm="35">
+                    <div flex-gt-sm="33">
                         <div>
                             <span class="md-headline">Reviews</span>
                         </div>

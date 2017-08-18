@@ -12,6 +12,10 @@ module.exports = function(app, model) {
     app.post('/api/user/login', login);
     app.get('/api/user/all', getAllUser);
     app.put('/api/user', updateUser);
+    app.put('/api/favPost', favoritePost);
+    app.get('/api/userFav', getUserFavorites);
+    app.put('/api/deleteFav', removeFavorite);
+    app.delete('/api/user/:userId', deleteUser);
 
     // passport user management
     app.post("/api/login", passport.authenticate('local'), login);
@@ -139,6 +143,59 @@ module.exports = function(app, model) {
                 res.send(result);
             }, function(error) {
                 res.status(400).send(error);
+            })
+    }
+
+    function favoritePost(req, res) {
+        var uid = req.query.user;
+        var pid = req.query.post;
+
+        model.userModel.favoritePost(pid, uid)
+            .then(function(result) {
+                res.sendStatus(200);
+            }, function (err) {
+                res.status(400).send(error);
+            });
+    }
+
+    function getUserFavorites(req, res) {
+        var uid = req.query.user;
+
+        model.userModel.getUserFavorites(uid)
+            .then(function(result) {
+                var postIds = result.favorite;
+
+                model.postModel.findChunks(postIds)
+                    .then(function(result) {
+                        res.send(result);
+                    }, function(error) {
+                        res.status(400).send(error);
+                    });
+            }, function(err) {
+                res.status(400).send(error);
+            });
+    }
+
+    function removeFavorite(req, res) {
+        var uid = req.query.user;
+        var pid = req.query.post;
+
+        model.userModel.removeFavorite(pid, uid)
+            .then(function(result) {
+                res.sendStatus(200);
+            }, function (err) {
+                res.status(400).send(error);
+            });
+    }
+
+    function deleteUser(req, res) {
+        var uid = req.params.userId;
+
+        model.userModel.deleteUser(uid)
+            .then(function(result) {
+                res.sendStatus(200);
+            }, function(error) {
+                res.status(500).send(error);
             })
     }
 };

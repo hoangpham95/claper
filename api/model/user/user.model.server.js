@@ -16,6 +16,10 @@ module.exports = function() {
       getAllUser: getAllUser,
       findUserByUsername: findUserByUsername,
       updateUser: updateUser,
+      favoritePost: favoritePost,
+      getUserFavorites: getUserFavorites,
+      removeFavorite: removeFavorite,
+      deleteUser: deleteUser
   };
 
   function createUser(user) {
@@ -108,6 +112,64 @@ module.exports = function() {
                   deferred.reject(err);
               }
           });
+
+      return deferred.promise;
+  }
+
+  function favoritePost(postId, userId) {
+      var deferred = q.defer();
+
+      userModel.findOneAndUpdate({_id: userId}, {$push: {favorite: postId}})
+          .exec(function (err, result) {
+              if (err) {
+                  deferred.reject(err);
+              } else {
+                  deferred.resolve(result);
+              }
+          });
+
+      return deferred.promise;
+  }
+
+    function removeFavorite(postId, userId) {
+        var deferred = q.defer();
+
+        userModel.findOneAndUpdate({_id: userId}, {$pull: {favorite: postId}})
+            .exec(function (err, result) {
+                if (err) {
+                    deferred.reject(err);
+                } else {
+                    deferred.resolve(result);
+                }
+            });
+
+        return deferred.promise;
+    }
+
+  function getUserFavorites(uid) {
+      var deferred = q.defer();
+
+      userModel.findOne({_id: uid}, 'favorite', function(err, result) {
+          if (err) {
+              deferred.reject(err);
+          } else {
+              deferred.resolve(result);
+          }
+      });
+
+      return deferred.promise;
+  }
+
+  function deleteUser(uid) {
+      var deferred = q.defer();
+
+      userModel.remove({_id: uid}).exec(function(err, result) {
+          if (!err) {
+              deferred.resolve(result);
+          } else {
+              deferred.reject(result);
+          }
+      });
 
       return deferred.promise;
   }

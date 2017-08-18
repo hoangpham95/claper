@@ -19,6 +19,7 @@ module.exports = function() {
         likePost: likePost,
         updatePost: updatePost,
         deletePost: deletePost,
+        findChunks: findChunks
     };
 
     function createPost(post) {
@@ -165,6 +166,20 @@ module.exports = function() {
                 deferred.resolve(result);
             } else {
                 deferred.reject(error);
+            }
+        });
+
+        return deferred.promise;
+    }
+
+    function findChunks(postIds) {
+        var deferred = q.defer();
+
+        postModel.find({'_id': {$in: postIds}}, function(err, result) {
+            if (!err) {
+                deferred.resolve(result);
+            } else {
+                deferred.reject(result);
             }
         });
 

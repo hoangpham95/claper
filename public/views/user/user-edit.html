@@ -1,6 +1,6 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
-        <md-button aria-label="Go Back" ng-href="#/">
+        <md-button aria-label="Go Back" ng-href="#/profile">
             <i class="material-icons">arrow_back</i>
         </md-button>
 
@@ -9,13 +9,13 @@
         </md-truncate>
 
         <span flex></span>
-        <md-button class="md-fab md-mini" aria-label="profile" ng-href="#/profile">
-            <i class="material-icons">person</i>
+        <md-button class="md-fab md-mini" aria-label="delete user" ng-click="model.deleteUser()">
+            <i class="material-icons">delete</i>
         </md-button>
     </div>
 </md-toolbar>
 <md-content class="md-padding">
-    <md-card>
+    <md-card class="middle-width">
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline">Edit</span>

@@ -51,7 +51,8 @@
             .when("/user/:userId", {
                 templateUrl: "./views/user/user-profile.html",
                 controller: "UserProfileController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {loggedin: checkLoggedIn}
             })
             .when("/post/detail/:postId", {
                 templateUrl: "./views/post/post-detail.html",

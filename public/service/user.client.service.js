@@ -16,6 +16,10 @@
             "getUserPosts": getUserPosts,
             "getReviewsByOtherId": getReviewsByOtherId,
             "updateUser": updateUser,
+            "favoritePost": favoritePost,
+            "getUserFavorites": getUserFavorites,
+            "deleteFav": removeFavorite,
+            "deleteUser": deleteUser
         };
 
         return api;
@@ -42,6 +46,22 @@
 
         function updateUser(user) {
             return $http.put('/api/user', user);
+        }
+
+        function favoritePost(postId, userId) {
+            return $http.put('/api/favPost?user=' + userId + '&post=' + postId);
+        }
+
+        function getUserFavorites(userId) {
+            return $http.get('/api/userFav?user=' + userId);
+        }
+
+        function removeFavorite(userId, postId) {
+            return $http.put('/api/deleteFav?user=' + userId + '&post=' + postId);
+        }
+
+        function deleteUser(userId) {
+            return $http.delete('/api/user/' + userId);
         }
     }
 
