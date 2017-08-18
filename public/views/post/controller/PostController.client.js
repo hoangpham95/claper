@@ -87,7 +87,7 @@
                     }
                 });
             } else {
-                vm.location = new google.maps.LatLng(42.3398, 71.0892); // Northeastern Uni
+                vm.location = new google.maps.LatLng(42.3398070,-71.0891720); // Northeastern Uni
             }
 
             vm.map = new google.maps.Map(document.getElementById('ggMap'), {
