@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21670454-4693-4f5d-b996-e5def5205540" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/config.js" afterPath="$PROJECT_DIR$/public/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/user/UserController.client.js" afterPath="$PROJECT_DIR$/public/views/user/UserController.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/user/user-profile.html" afterPath="$PROJECT_DIR$/public/views/user/user-profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/post/controller/post-detail.controller.client.js" afterPath="$PROJECT_DIR$/public/views/post/controller/post-detail.controller.client.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/post/controller/post-edit.controller.client.js" afterPath="$PROJECT_DIR$/public/views/post/controller/post-edit.controller.client.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/post/post-detail.html" afterPath="$PROJECT_DIR$/public/views/post/post-detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/post/post-edit.html" afterPath="$PROJECT_DIR$/public/views/post/post-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/search/search-material.html" afterPath="$PROJECT_DIR$/public/views/search/search-material.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/user/user-register.html" afterPath="$PROJECT_DIR$/public/views/user/user-register.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,51 +22,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="post-new.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/post/post-new.html">
+      <file leaf-file-name="post-edit.controller.client.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/post/controller/post-edit.controller.client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="80" column="37" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="80" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.service.server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/service/user.service.server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="193" column="13" lean-forward="false" selection-start-line="193" selection-start-column="13" selection-end-line="193" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.client.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/views/user/UserController.client.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="107" column="24" lean-forward="true" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user-login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/user/user-login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="66" lean-forward="false" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.client.service.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/service/user.client.service.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="63" column="55" lean-forward="false" selection-start-line="63" selection-start-column="55" selection-end-line="63" selection-end-column="55" />
+            <state relative-caret-position="460">
+              <caret line="109" column="9" lean-forward="false" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -73,8 +35,8 @@
       <file leaf-file-name="user-profile.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/user/user-profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="69" lean-forward="false" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
+            <state relative-caret-position="175">
+              <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#md-divider#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -84,24 +46,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
+      <file leaf-file-name="post-edit.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/post/post-edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="220">
+              <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
-                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.model.server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/model/user/user.model.server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2595">
-              <caret line="173" column="30" lean-forward="false" selection-start-line="173" selection-start-column="30" selection-end-line="173" selection-end-column="30" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -109,9 +61,11 @@
       <file leaf-file-name="user-register.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/user/user-register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="56" column="93" lean-forward="false" selection-start-line="56" selection-start-column="93" selection-end-line="56" selection-end-column="93" />
-              <folding />
+            <state relative-caret-position="256">
+              <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+              <folding>
+                <element signature="n#style#0;n#md-radio-group#0;n#div#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,6 +75,59 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
               <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/search/search.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search-material.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/search/search-material.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+              <folding>
+                <element signature="n#style#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#p#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post-detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/post/post-detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="25" column="33" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="25" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post-detail.controller.client.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/post/controller/post-detail.controller.client.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="127" column="9" lean-forward="true" selection-start-line="112" selection-start-column="8" selection-end-line="127" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post-list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/post/post-list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -138,10 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>postdetailController</find>
-      <find>postdetail</find>
-      <find>review author</find>
-      <find>is</find>
       <find>leadership</find>
       <find>edit post</find>
       <find>newP</find>
@@ -168,6 +171,10 @@
       <find>md-rad</find>
       <find>edit</find>
       <find>isCurrentUser</find>
+      <find>cance</find>
+      <find>cancel</find>
+      <find>no clas</find>
+      <find>search</find>
     </findStrings>
     <replaceStrings>
       <replace>,</replace>
@@ -203,20 +210,15 @@
         <option value="$PROJECT_DIR$/api/model/post/post.schema.server.js" />
         <option value="$PROJECT_DIR$/public/views/review/ReviewController.client.js" />
         <option value="$PROJECT_DIR$/public/views/post/PostController.client.js" />
-        <option value="$PROJECT_DIR$/public/views/post/post-edit.html" />
         <option value="$PROJECT_DIR$/public/views/search/SearchController.client.js" />
         <option value="$PROJECT_DIR$/public/facebook-config.js" />
-        <option value="$PROJECT_DIR$/public/views/post/controller/post-edit.controller.client.js" />
         <option value="$PROJECT_DIR$/public/service/post.client.service.js" />
         <option value="$PROJECT_DIR$/api/service/post.service.server.js" />
         <option value="$PROJECT_DIR$/public/views/post/post-list.html" />
         <option value="$PROJECT_DIR$/public/views/review/review-new.html" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/public/views/search/search-material.html" />
         <option value="$PROJECT_DIR$/public/views/post/post-new.html" />
         <option value="$PROJECT_DIR$/api/model/user/user.schema.server.js" />
-        <option value="$PROJECT_DIR$/public/views/post/post-detail.html" />
-        <option value="$PROJECT_DIR$/public/views/post/controller/post-detail.controller.client.js" />
         <option value="$PROJECT_DIR$/public/views/post/controller/PostController.client.js" />
         <option value="$PROJECT_DIR$/public/views/post/controller/post-new.controller.client.js" />
         <option value="$PROJECT_DIR$/api/model/post/post.model.server.js" />
@@ -226,10 +228,15 @@
         <option value="$PROJECT_DIR$/api/service/user.service.server.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/views/user/user-login.html" />
-        <option value="$PROJECT_DIR$/public/views/user/user-register.html" />
         <option value="$PROJECT_DIR$/public/config.js" />
         <option value="$PROJECT_DIR$/public/views/user/user-profile.html" />
         <option value="$PROJECT_DIR$/public/views/user/UserController.client.js" />
+        <option value="$PROJECT_DIR$/public/views/user/user-register.html" />
+        <option value="$PROJECT_DIR$/public/views/search/search-material.html" />
+        <option value="$PROJECT_DIR$/public/views/post/post-detail.html" />
+        <option value="$PROJECT_DIR$/public/views/post/controller/post-detail.controller.client.js" />
+        <option value="$PROJECT_DIR$/public/views/post/controller/post-edit.controller.client.js" />
+        <option value="$PROJECT_DIR$/public/views/post/post-edit.html" />
       </list>
     </option>
   </component>
@@ -731,12 +738,12 @@
       <workItem from="1502928346585" duration="1569000" />
       <workItem from="1502934654981" duration="19625000" />
       <workItem from="1502987948501" duration="16846000" />
-      <workItem from="1503009648396" duration="21569000" />
+      <workItem from="1503009648396" duration="23212000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179024000" />
+    <option name="totallyTimeSpent" value="180667000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="199" y="24" width="1291" height="876" extended-state="4" />
@@ -936,16 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/post/post-edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="24" column="26" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/service/post.client.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
@@ -978,25 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/search/search-material.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#p#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/search/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="46" lean-forward="true" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/review/review-new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1005,42 +983,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/post/controller/post-edit.controller.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/post/post-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/post/post-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/service/review.service.server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/post/controller/post-detail.controller.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="111" column="5" lean-forward="false" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1143,11 +1089,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/user/UserController.client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1605">
+          <caret line="107" column="24" lean-forward="true" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/user/user-profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="20" column="14" lean-forward="false" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#md-divider#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-divider#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/user/user-register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="56" column="93" lean-forward="false" selection-start-line="56" selection-start-column="93" selection-end-line="56" selection-end-column="93" />
-          <folding />
+        <state relative-caret-position="256">
+          <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#md-radio-group#0;n#div#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1159,23 +1127,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/user/user-profile.html">
+    <entry file="file://$PROJECT_DIR$/public/views/search/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="69" lean-forward="false" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
+        <state relative-caret-position="120">
+          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/search/search-material.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
           <folding>
-            <element signature="n#style#0;n#md-divider#0;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#md-divider#1;n#div#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#p#0;n#md-card#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/user/UserController.client.js">
+    <entry file="file://$PROJECT_DIR$/public/views/post/post-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="107" column="24" lean-forward="true" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
+        <state relative-caret-position="30">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/post/controller/post-detail.controller.client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="127" column="9" lean-forward="true" selection-start-line="112" selection-start-column="8" selection-end-line="127" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/post/controller/post-edit.controller.client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="109" column="9" lean-forward="false" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/post/post-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="33" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="25" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/post/post-edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

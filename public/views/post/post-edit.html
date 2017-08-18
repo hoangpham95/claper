@@ -17,11 +17,11 @@
 <div layout="row" class="md-padding">
     <div hide-sm hide-xs flex-gt-sm="35">
         <h1>Post list</h1>
-        <div layout="row">
-            <input flex="80" placeholder="Search posts by keyword"
-                   ng-model="model.searchKeyword">
-            <md-button flex="20" class="md-primary md-raised" ng-click="model.search()">Search</md-button>
-        </div>
+        <md-input-container class="md-block">
+            <input placeholder="Search posts by keyword"
+                   ng-model="model.searchKeyword"
+                   ng-change="model.search()">
+        </md-input-container>
         <md-list layout-wrap>
             <md-list-item class="md-3-line" ng-repeat="post in model.posts" ng-href="#/post/edit/{{post._id}}">
                 <img class="md-avatar" ng-src="{{model.getPostTypeAvatar(post)}}">

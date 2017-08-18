@@ -11,6 +11,7 @@
         vm.updatingPlaces = updatingPlaces;
         vm.updatePost = updatePost;
         vm.getPostTypeAvatar = getPostTypeAvatar;
+        vm.search = search;
 
         function init() {
             var postId = $routeParams.postId;
@@ -28,6 +29,7 @@
                 .success(function(result) {
                     console.log(result);
                     vm.posts = result;
+                    vm.immutablePosts = result;
                 }).error(function(err) {
                 vm.error = err.message;
             });
@@ -88,6 +90,23 @@
             };
 
             return postTypes[post.postType];
+        }
+
+        function search() {
+            var searchText = vm.searchKeyword;
+
+            if (searchText) {
+                var old = vm.immutablePosts;
+                vm.posts = vm.immutablePosts.filter(function(r) {
+                    console.log(searchText);
+                    console.log(r);
+                    return r.content.indexOf(searchText) !== -1 ||
+                        r.classCode.indexOf(searchText) !== -1 ||
+                        (r.className && r.className.indexOf(searchText) !== -1);
+                });
+
+                vm.immutablePosts = old;
+            }
         }
 
         init();
