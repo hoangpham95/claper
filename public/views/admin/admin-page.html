@@ -20,6 +20,7 @@
                     <div class="md-list-item-text">
                         <h3><b>{{user.firstName}}: {{user.lastName}}</b></h3>
                         <h4>Username: {{user.username}}</h4>
+                        <h4 ng-show="user.isSchoolOfficial">School official</h4>
                     </div>
                 </div>
                 <md-divider ng-if="!$last"></md-divider>
