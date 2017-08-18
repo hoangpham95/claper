@@ -22,7 +22,7 @@
                     $location.url("/profile");
                 }).error(function(err) {
                     console.log(err);
-                    vm.error = err;
+                    vm.error = "Cannot find user";
             })
         }
     }
